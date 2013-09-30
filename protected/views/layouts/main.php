@@ -46,7 +46,7 @@
                   <div class="column" style="margin: 25px 0 5px 7px">
                       <div style="text-align: center; color: red; font-size: 22px; font-weight: bold; padding-bottom: 25px">$  MILLION  $<br/>Dollar Resources</div>
                       <div><a href="http://retiretomexicoblog.com/" target="_blank"><img border="0" src="images/20secrets.jpg"></a></div>
-                      <div style="padding-top: 30px"><a href="AboutUs_Testimonials.htm"><img border="0" src="images/Testimonials.jpg"></a></div>
+                      <div style="padding-top: 30px"><a href="about"><img border="0" src="images/Testimonials.jpg"></a></div>
                   </div>
                   <div class="clearfix"></div>
               </div>

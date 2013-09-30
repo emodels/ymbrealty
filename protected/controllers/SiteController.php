@@ -70,6 +70,10 @@ class SiteController extends Controller
 	    }
 	}
 
+        public function actionAbout(){
+		$this->render('pages/about');
+        }
+        
 	/**
 	 * Displays the contact page
 	 */
