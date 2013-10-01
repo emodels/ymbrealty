@@ -52,7 +52,7 @@
                   <div class="column" style="padding-left: 50px">Business Opportunities</div>
                   <div class="clearfix"></div>
               </div>
-              <a id="google_earth" href="#"></a>
+              <a id="google_earth" href="<?php echo Yii::app()->request->baseUrl; ?>/googleearth"></a>
           </div>
           <div class="row" style="height: 100%; display: inline-table;">
               <div class="column" style="width: 916px;"><?php echo $content ?></div>

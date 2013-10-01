@@ -43,7 +43,17 @@ function LoadImage(strUrl){
             </div>
             <div class="clearfix"></div>
         </div>
+        <div class="row" style="padding: 20px 0 20px 50px; text-align: center">
+            <div style="display:inline-block;">
+            <?php foreach ($model->propertyImages as $image) { ?>
+            <div class="column" style="padding: 0 5px 10px 0; width: 70px"><a href="javascript:LoadImage('<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $image->file_name; ?>');"><img src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $image->file_name; ?>" style="width: 65px; height: 49px; border: solid 1px black;"/></a></div>
+            <?php } ?>
+            <div class="clearfix"></div>
+            </div>
+        </div>
     </div>
+    <div style="padding: 20px 0 10px 0; font-size: 15px; color: black; text-align: justify"><?php echo $model->short_desc; ?></div>
+    <div style="padding: 10px 0 20px 0; font-size: 15px; color: black; text-align: justify"><?php echo $model->full_desc; ?></div>
 </div>
 <div class="column" style="background: white; padding: 20px 10px 20px 10px; width: 1154px; margin-left: -1px; border-top: solid 1px silver; margin: 0px; text-align: center; font-size: 22px; color: black">I can show you <b>any</b> property on any web site including  for <b>“sale by owners”</b> and properties  <b>“represented as  exclusive”</b> by other realtors.</div>
 <div class="clearfix"></div>

@@ -340,4 +340,105 @@ function ShowVideo(strID){
     <iframe width="560" height="315" src="//www.youtube.com/embed/J7pFzEBdQlA" frameborder="0" allowfullscreen></iframe>
     <div style="padding: 15px 0 5px 0; color: black; font-size: 16px">We came down here twice and other realtors no showed. YMB Realty was great and the communication was first class !!!</div>
 <?php $this->endWidget();?>                    
+<!--=====( Video -  10 )============================================-->
+<?php
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id'=>'Video_10',
+        'options'=>array(
+            'title'=>'Peter and Debbie Renes from North Carolina',
+            'autoOpen'=>false,
+            'modal'=>true,
+            'width'=>592,
+            'height'=>380,
+            'show'=>'puff',
+            'hide'=>'puff'
+        ),
+    ));?>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/63YWy2YEEzQ" frameborder="0" allowfullscreen></iframe>
+<?php $this->endWidget();?>     
+<!--=====( Video -  11 )============================================-->
+<?php
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id'=>'Video_11',
+        'options'=>array(
+            'title'=>'Richard Carroll and Brenda Buyers from Lloydminster, Alberta',
+            'autoOpen'=>false,
+            'modal'=>true,
+            'width'=>592,
+            'height'=>430,
+            'show'=>'puff',
+            'hide'=>'puff'
+        ),
+    ));?>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/01wlBgZrb3A" frameborder="0" allowfullscreen></iframe>
+    <div style="padding: 15px 0 5px 0; color: black; font-size: 16px">YMB Realty did a great job of explaining all the steps. We would do it again !!</div>
+<?php $this->endWidget();?>                    
+<!--=====( Video -  12 )============================================-->
+<?php
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id'=>'Video_12',
+        'options'=>array(
+            'title'=>'Mcguire Gang from British Columbia',
+            'autoOpen'=>false,
+            'modal'=>true,
+            'width'=>592,
+            'height'=>410,
+            'show'=>'puff',
+            'hide'=>'puff'
+        ),
+    ));?>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/TIEzY1Su2jU" frameborder="0" allowfullscreen></iframe>
+    <div style="padding: 15px 0 5px 0; color: black; font-size: 16px">YMB is very knowledgeable with high integrity</div>
+<?php $this->endWidget();?>                    
+<!--=====( Video -  13 )============================================-->
+<?php
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id'=>'Video_13',
+        'options'=>array(
+            'title'=>'Phillip Boyer & Tracey Conolly from Hot Springs, British Columbia',
+            'autoOpen'=>false,
+            'modal'=>true,
+            'width'=>592,
+            'height'=>410,
+            'show'=>'puff',
+            'hide'=>'puff'
+        ),
+    ));?>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/HqMKprsRaf0" frameborder="0" allowfullscreen></iframe>
+    <div style="padding: 15px 0 5px 0; color: black; font-size: 16px">The renovation results exceeded our expectations !!!!</div>
+<?php $this->endWidget();?>                    
+<!--=====( Video -  14 )============================================-->
+<?php
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id'=>'Video_14',
+        'options'=>array(
+            'title'=>'Rob and Angela Tintinaglia from Mississauga, Ontario',
+            'autoOpen'=>false,
+            'modal'=>true,
+            'width'=>592,
+            'height'=>420,
+            'show'=>'puff',
+            'hide'=>'puff'
+        ),
+    ));?>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/xIp8Vn7xDyU" frameborder="0" allowfullscreen></iframe>
+    <div style="padding: 15px 0 5px 0; color: black; font-size: 16px">Real estate is like the wild west here and YMB has the experience to navigate the process</div>
+<?php $this->endWidget();?>                    
+<!--=====( Video -  15 )============================================-->
+<?php
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id'=>'Video_15',
+        'options'=>array(
+            'title'=>'Chuck and Joanne Dueck from Winnipeg, Manitoba',
+            'autoOpen'=>false,
+            'modal'=>true,
+            'width'=>592,
+            'height'=>410,
+            'show'=>'puff',
+            'hide'=>'puff'
+        ),
+    ));?>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/FwqHWz4m-HQ" frameborder="0" allowfullscreen></iframe>
+    <div style="padding: 15px 0 5px 0; color: black; font-size: 16px">Yucatan, Mexico has a far better lifestyle.</div>
+<?php $this->endWidget();?>                    
 </div>

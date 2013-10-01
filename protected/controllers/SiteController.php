@@ -51,12 +51,13 @@ class SiteController extends Controller
         public function actionPropertyListing($category = NULL){
             if ($category == null) {
                 $criteria=new CDbCriteria(array(
+                        'condition' => 'status = 0 AND for_sale = 1',
                         'order' => 'price ASC'
                 ));
             }
             else {
                 $criteria=new CDbCriteria(array(
-                        //'condition' => 'user = ' . Yii::app()->user->id,
+                        'condition' => 'status = 0 AND for_sale = 1',
                         'order' => 'price ASC'
                 ));
             }
@@ -84,7 +85,11 @@ class SiteController extends Controller
 		$this->render('pages/about');
         }
         
-	/**
+        public function actionGoogleEarth(){
+		$this->render('pages/googleearth');
+        }
+
+        /**
 	 * Displays the contact page
 	 */
 	public function actionContact()
