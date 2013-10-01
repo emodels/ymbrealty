@@ -17,16 +17,31 @@
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
+    <?php
+        $flashMessages = Yii::app()->user->getFlashes();
+        if ($flashMessages) {
+            echo '<ul class="flashes" style="list-style-type:none; margin: 0px; padding: 0px">';
+            foreach($flashMessages as $key => $message) {
+                echo '<li><div class="flash-' . $key . '">' . $message . "</div></li>\n";
+            }
+            echo '</ul>';
+            Yii::app()->clientScript->registerScript(
+            'myHideEffect',
+            '$(".flashes").animate({opacity: 1.0}, 3000).fadeOut("slow");',
+            CClientScript::POS_READY
+            );            
+        }
+    ?>
    <div class="container">
       <div class="primary_background">
           <div id="header">
               <div id="menu_top">
                   <div class="row">
-                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="index.php" class="active_link">Home</a></div>
+                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="<?php echo Yii::app()->baseUrl; ?>/index.php" class="active_link">Home</a></div>
                       <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sun_2.jpg"></div>
                   </div>
                   <div class="row" style="margin-top: 28px">
-                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="contact" class="link">Contact Us</a></div>
+                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="<?php echo Yii::app()->baseUrl; ?>/contact" class="link">Contact Us</a></div>
                       <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sun_1.jpg"></div>
                   </div>
               </div>
@@ -45,8 +60,8 @@
                   <div class="column orange_line" style="margin: 0px"></div>
                   <div class="column" style="margin: 25px 0 5px 7px">
                       <div style="text-align: center; color: red; font-size: 22px; font-weight: bold; padding-bottom: 25px">$  MILLION  $<br/>Dollar Resources</div>
-                      <div><a href="http://retiretomexicoblog.com/" target="_blank"><img border="0" src="images/20secrets.jpg"></a></div>
-                      <div style="padding-top: 30px"><a href="about"><img border="0" src="images/Testimonials.jpg"></a></div>
+                      <div><a href="http://retiretomexicoblog.com/" target="_blank"><img border="0" src="<?php echo Yii::app()->request->baseUrl; ?>/images/20secrets.jpg"></a></div>
+                      <div style="padding-top: 30px"><a href="about"><img border="0" src="<?php echo Yii::app()->request->baseUrl; ?>/images/Testimonials.jpg"></a></div>
                   </div>
                   <div class="clearfix"></div>
               </div>
@@ -60,19 +75,19 @@
                   <div class="row" style="padding: 10px 10px 20px 10px; display: inline-block">
                       <div class="column" style="width: 545px; padding-right: 10px; margin-left: 10px">
                           <div class="row" style="text-align: center; display: inline-block; padding-left: 17px">
-                              <div class="column"><img src="images/english_flag.png"/></div>
+                              <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/english_flag.png"/></div>
                               <div class="column" style="font-size: 16px; color: navy; font-weight: bolder; padding-top: 7px">English</div>
                               <div class="clearfix"></div>
                           </div>
                           <div style="margin-top: 10px; padding: 10px; background: white; border-radius: 20px; border: solid 1px gray">
                               <div class="row">
-                                  <img src="images/rob_harker.png"/>
+                                  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/rob_harker.png"/>
                                   <div style="font-size: 16px; color: black; font-weight: bolder; margin: 10px 0 10px 0">Rob Harker</div>
                               </div>
                               <div class="row" style="text-align: left; padding-left: 65px">
                                   <div class="row">
                                       <div class="column" style="width: 125px; padding-top: 17px; font-size: 14px; color: black; font-weight: bold">Skype :</div>
-                                      <div class="column" style="padding-left: 8px"><a href="skype:yucatanrob"><img src="images/skype_icon.png" class="opacity_effect"/></a></div>
+                                      <div class="column" style="padding-left: 8px"><a href="skype:yucatanrob"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/skype_icon.png" class="opacity_effect"/></a></div>
                                       <div class="column" style="margin-top: 15px"><a href="skype:yucatanrob" style="font-size: 14px"><b>yucatanrob</b></a></div>
                                       <div class="clearfix"></div>
                                   </div>
@@ -97,19 +112,19 @@
                       </div>
                       <div class="column" style="width: 545px">
                           <div class="row" style="text-align: center; display: inline-block; padding-left: 17px">
-                              <div class="column"><img src="images/spanish_flag.png"/></div>
+                              <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spanish_flag.png"/></div>
                               <div class="column" style="font-size: 16px; color: navy; font-weight: bolder; padding-top: 6px">Spanish</div>
                               <div class="clearfix"></div>
                           </div>
                           <div style="margin-top: 12px; padding: 10px; background: white; border-radius: 20px; border: solid 1px gray">
                               <div class="row">
-                                  <img src="images/roxana_hernandez.png"/>
+                                  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/roxana_hernandez.png"/>
                                   <div style="font-size: 16px; color: black; font-weight: bolder; margin: 10px 0 10px 0">Roxana Hernandez</div>
                               </div>
                               <div class="row" style="text-align: left; padding-left: 33px">
                                   <div class="row">
                                       <div class="column" style="width: 125px; padding-top: 17px; font-size: 14px; color: black; font-weight: bold">Skype :</div>
-                                      <div class="column" style="padding-left: 8px"><a href="skype:roxanahern"><img src="images/skype_icon.png" class="opacity_effect"/></a></div>
+                                      <div class="column" style="padding-left: 8px"><a href="skype:roxanahern"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/skype_icon.png" class="opacity_effect"/></a></div>
                                       <div class="column" style="margin-top: 15px"><a href="skype:roxanahern" style="font-size: 14px"><b>roxanahern</b></a></div>
                                       <div class="clearfix"></div>
                                   </div>

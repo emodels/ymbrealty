@@ -42,6 +42,7 @@ return array(
 			'rules'=>array(
                                 'propertylisting'=>'site/propertylisting',
                                 'propertylisting/category/\d+'=>'site/propertylisting/category/\d+',
+                                'property/*'=>'site/property/*',
                                 'contact'=>'site/contact',
                                 'about'=>'site/about',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',

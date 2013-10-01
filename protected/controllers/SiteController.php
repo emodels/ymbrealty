@@ -37,6 +37,16 @@ class SiteController extends Controller
                 $this->render('index', array('dataProvider' => $dataProvider));
 	}
 
+        public function actionProperty($id){
+            $model = Property::model()->findByAttributes(array('id' => $id));
+            
+            if (!isset($model)) {
+                Yii::app()->user->setFlash('notice','Invalid Property ID');
+                $this->redirect(Yii::app()->baseUrl);
+            }
+            
+            $this->render('property', array('model' => $model));
+        }
         
         public function actionPropertyListing($category = NULL){
             if ($category == null) {

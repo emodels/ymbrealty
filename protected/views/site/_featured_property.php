@@ -1,4 +1,4 @@
-<a href="#" style="text-decoration: none; display: inline-block">
+<a href="property/id/<?php echo $data->id; ?>" style="text-decoration: none; display: inline-block">
     <div class="row box" style="width: 116px">
         <div><img src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $data->image_main; ?>" style="width: 100%; height: 90px"/></div>
         <div style="background: #3C89D1; text-align: center; font-size: 11px; color: white; padding: 3px 0 3px 0"><?php echo $data->propertyCategories[0]->category0->name; ?></div>
