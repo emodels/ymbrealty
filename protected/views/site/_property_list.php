@@ -18,7 +18,7 @@
     </div>    
     <div class="clearfix"></div>
     <div style="position: absolute; right: 0px; top: 0px; font-size: 15px; padding: 10px; width: 100px; background: #3C89D1; color: white; text-align: center; border-bottom-left-radius: 5px"><?php echo $data->propertyCategories[0]->category0->name; ?></div>
-    <?php if ($data->status == 1){ ?>
+    <?php if ($data->status == 0){ ?>
     <div style="position: absolute; right: 0px; top: 50px; font-size: 15px; padding: 10px; width: 100px; background: red; color: white; text-align: center; border-bottom-left-radius: 5px; border-top-left-radius: 5px">SOLD</div>
     <?php } ?>
 </div>

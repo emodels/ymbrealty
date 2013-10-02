@@ -51,13 +51,13 @@ class SiteController extends Controller
         public function actionPropertyListing($category = NULL){
             if ($category == null) {
                 $criteria=new CDbCriteria(array(
-                        'condition' => 'status = 0 AND for_sale = 1',
+                        'condition' => 'status = 1 AND for_sale = 1',
                         'order' => 'price ASC'
                 ));
             }
             else {
                 $criteria=new CDbCriteria(array(
-                        'condition' => 'status = 0 AND for_sale = 1',
+                        'condition' => 'status = 1 AND for_sale = 1',
                         'order' => 'price ASC'
                 ));
             }
