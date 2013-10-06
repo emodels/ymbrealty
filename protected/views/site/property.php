@@ -23,7 +23,7 @@
         });
         $('#lnk_back').click(function(){
             if (image_total != 0){
-                if (int_slide != 1){
+                if (int_slide != 1 && int_slide != 0){
                     int_slide--;
                     LoadImage(int_slide);
                 }
