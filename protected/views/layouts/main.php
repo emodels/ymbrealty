@@ -82,27 +82,33 @@
                           <div style="margin-top: 10px; padding: 10px; background: white; border-radius: 20px; border: solid 1px gray">
                               <div class="row">
                                   <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/rob_harker.png"/>
-                                  <div style="font-size: 16px; color: black; font-weight: bolder; margin: 10px 0 10px 0">Rob Harker</div>
+                                  <div style="font-size: 22px; color: black; font-weight: bolder; margin: 10px 0 5px 0">Rob Harker</div>
+                                  <div style="font-size: 18px; color: gray; font-weight: bolder; margin: 5px 0 10px 0">"Broker Owner"</div>
                               </div>
                               <div class="row" style="text-align: left; padding-left: 65px">
                                   <div class="row">
-                                      <div class="column" style="width: 125px; padding-top: 17px; font-size: 14px; color: black; font-weight: bold">Skype :</div>
+                                      <div class="column" style="width: 155px; padding-top: 17px; font-size: 14px; color: black; font-weight: bold">Skype :</div>
                                       <div class="column" style="padding-left: 8px"><a href="skype:yucatanrob"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/skype_icon.png" class="opacity_effect"/></a></div>
                                       <div class="column" style="margin-top: 15px"><a href="skype:yucatanrob" style="font-size: 14px"><b>yucatanrob</b></a></div>
                                       <div class="clearfix"></div>
                                   </div>
                                   <div class="row" style="padding-top:20px">
-                                      <div class="column" style="width: 125px; font-size: 14px; color: black; font-weight: bold">Office number :</div>
+                                      <div class="column" style="width: 155px; font-size: 14px; color: black; font-weight: bold">Office number :</div>
                                       <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px">011-52-969-934-8010</div>
                                       <div class="clearfix"></div>
                                   </div>
                                   <div class="row" style="padding-top:25px">
-                                      <div class="column" style="width: 125px; font-size: 14px; color: black; font-weight: bold">Cell :</div>
+                                      <div class="column" style="width: 155px; font-size: 14px; color: black; font-weight: bold">Cell :</div>
                                       <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px">999-129-7321</div>
                                       <div class="clearfix"></div>
                                   </div>
                                   <div class="row" style="padding-top:25px">
-                                      <div class="column" style="width: 125px; font-size: 14px; color: black; font-weight: bold">Email :</div>
+                                      <div class="column" style="width: 155px; font-size: 14px; color: black; font-weight: bold">Canada / USA  dial :</div>
+                                      <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px">702-997-3047</div>
+                                      <div class="clearfix"></div>
+                                  </div>
+                                  <div class="row" style="padding-top:25px">
+                                      <div class="column" style="width: 155px; font-size: 14px; color: black; font-weight: bold">Email :</div>
                                       <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px"><a href="mailto:rob@ymbrealty.com">rob@ymbrealty.com</a></div>
                                       <div class="clearfix"></div>
                                   </div>
@@ -119,13 +125,14 @@
                           <div style="margin-top: 12px; padding: 10px; background: white; border-radius: 20px; border: solid 1px gray">
                               <div class="row">
                                   <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/roxana_hernandez.png"/>
-                                  <div style="font-size: 16px; color: black; font-weight: bolder; margin: 10px 0 10px 0">Roxana Hernandez</div>
+                                  <div style="font-size: 22px; color: black; font-weight: bolder; margin: 10px 0 10px 0">Roxana Hernandez</div>
+                                  <div style="font-size: 18px; color: gray; font-weight: bolder; margin: 5px 0 10px 0">"Listing Manager"</div>
                               </div>
                               <div class="row" style="text-align: left; padding-left: 33px">
                                   <div class="row">
                                       <div class="column" style="width: 125px; padding-top: 17px; font-size: 14px; color: black; font-weight: bold">Skype :</div>
-                                      <div class="column" style="padding-left: 8px"><a href="skype:roxanahern"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/skype_icon.png" class="opacity_effect"/></a></div>
-                                      <div class="column" style="margin-top: 15px"><a href="skype:roxanahern" style="font-size: 14px"><b>roxanahern</b></a></div>
+                                      <div class="column" style="padding-left: 8px"><a href="skype:roxanargh7"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/skype_icon.png" class="opacity_effect"/></a></div>
+                                      <div class="column" style="margin-top: 15px"><a href="skype:roxanargh7" style="font-size: 14px"><b>roxanargh7</b></a></div>
                                       <div class="clearfix"></div>
                                   </div>
                                   <div class="row" style="padding-top:20px">
@@ -143,6 +150,7 @@
                                       <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px"><a href="mailto:roxana@ymbrealty.com">roxana@ymbrealty.com</a></div>
                                       <div class="clearfix"></div>
                                   </div>
+                                  <div class="row" style="padding-top:21px">&nbsp;</div>
                               </div>
                               <div class="clearfix"></div>
                           </div>
