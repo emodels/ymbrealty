@@ -114,26 +114,51 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
-		$model=new LoginForm;
+            $model=new LoginForm;
 
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
+            /**
+             * Check for Remember me cookie and show user name
+             */
+            if (isset(Yii::app()->request->cookies['remember_me'])) {
+               $model->username = Yii::app()->request->cookies['remember_me']->value;
+               $model->rememberMe = 1;
+            }
+            
+            // if it is ajax validation request
+            if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+            {
+                    echo CActiveForm::validate($model);
+                    Yii::app()->end();
+            }
 
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
-	}
+            // collect user input data
+            if(isset($_POST['LoginForm']))
+            {
+                    $model->attributes=$_POST['LoginForm'];
+                    // validate user input and redirect to the previous page if valid
+                    if($model->validate() && $model->login()){
+                        
+                        /**
+                         * Configure remember me cookie
+                         */
+                        if ($model->rememberMe == 1) {
+                            unset(Yii::app()->request->cookies['remember_me']);
+                            $cookie = new CHttpCookie('remember_me', $model->username);
+                            $cookie->expire = time()+60*60*24*180; 
+                            Yii::app()->request->cookies['remember_me'] = $cookie;
+                        }
+                        else{
+                            if (isset(Yii::app()->request->cookies['remember_me'])) {
+                                unset(Yii::app()->request->cookies['remember_me']);
+                            }
+                        }
+                        
+                        $this->redirect(Yii::app()->user->returnUrl);
+                    }        
+            }
+            // display the login form
+            $this->render('login',array('model'=>$model));
+        }
 
 	/**
 	 * Logs out the current user and redirect to homepage.
