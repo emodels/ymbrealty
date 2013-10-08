@@ -40,7 +40,7 @@ class AdminController extends Controller
                     $criteria->addSearchCondition('cfe_meter', $model->cfe_meter, true);
                 }
 
-                //----------Advanced filters--------------------------------
+                //----------Advanced filters------------------------------------
                 if ($model->ref_no != '') {
                     $criteria->addCondition("ref_no = '" . $model->ref_no . "'");
                 }
@@ -51,11 +51,57 @@ class AdminController extends Controller
                     $criteria->addCondition('for_sale = ' . $model->for_sale);
                 }
                 
+                //---------------Status-----------------------------------------
+                if (isset($_POST['mode']) && isset($_POST['id']) && $_POST['mode'] == 'status' && $_POST['id'] != '') {
+                    $property = Property::model()->findByPk($_POST['id']);
+                    
+                    if (isset($property)) {
+                        if($property->status == 0){
+                           $property->status = 1; 
+                        } else {
+                           $property->status = 0;  
+                        }
+                        
+                        $property->save(false);
+                    }
+                }
+                //--------------------------------------------------------------
+                
+                //-----------------Type-----------------------------------------
+                if (isset($_POST['mode']) && isset($_POST['id']) && $_POST['mode'] == 'type' && $_POST['id'] != '') {
+                    $property = Property::model()->findByPk($_POST['id']);
+                    
+                    if (isset($property)) {
+                        if($property->for_sale == 0){
+                           $property->for_sale = 1; 
+                        } else {
+                           $property->for_sale = 0;  
+                        }
+                        
+                        $property->save(false);
+                    }
+                }
+                //--------------------------------------------------------------
+
+                //-----------------Delete Property------------------------------
+                if (isset($_POST['mode']) && isset($_POST['id']) && $_POST['mode'] == 'delete' && $_POST['id'] != '') {
+                    $property = Property::model()->findByPk($_POST['id']);
+                    
+                    if (isset($property)) {
+                        $property->delete();
+                    }
+                }
+                //--------------------------------------------------------------
+                
                 $dataProvider = new CActiveDataProvider('Property', array('criteria'=>$criteria, 'pagination' => array('pageSize' => 50)));
             }
             
             $this->render('index', array('model' => $model, 'dataProvider'=>$dataProvider));
 	}
+        
+        public function actionEditPropery($id){
+            echo $id;
+        }
         
         public function filterAccessControl($filterChain)
         {
