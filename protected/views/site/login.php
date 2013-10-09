@@ -15,10 +15,11 @@ $this->pageTitle = Yii::app()->name . ' - Login';
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'login-form',
             'enableClientValidation' => true,
+            'focus'=> array($model,'username'), 
             'clientOptions' => array(
                 'validateOnSubmit' => true,
             ),
-                ));
+        ));
         ?>
         <div class="row">
             <div class="column" style="padding-top: 5px; width: 100px"><b>User Name</b></div>

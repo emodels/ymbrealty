@@ -99,8 +99,38 @@ class AdminController extends Controller
             $this->render('index', array('model' => $model, 'dataProvider'=>$dataProvider));
 	}
         
+        public function actionAddProperty(){
+            $model = new Property();
+            
+            //-----Get Max value-----------
+            $prop_max = Property::model()->find(array('order'=>'ref_no DESC'));
+            $model->ref_no = $prop_max->ref_no + 1;
+            //-----------------------------
+            
+            $this->render('addproperty', array('model' => $model));
+        }
+        
         public function actionEditPropery($id){
             echo $id;
+        }
+        
+        public function actionUpload($id)
+        {
+                Yii::import("ext.EAjaxUpload.qqFileUploader");
+
+                $folder='property_images/';
+                $allowedExtensions = array("jpg","jpeg","gif");
+                $sizeLimit = 2 * 1024 * 1024;
+                
+                $uploader = new qqFileUploader($allowedExtensions, $sizeLimit, 'image_' . $id . '_' . time());
+                
+                $result = $uploader->handleUpload($folder);
+                $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+
+                $fileSize=filesize($folder.$result['filename']);
+                $fileName=$result['filename'];
+
+                echo $return;
         }
         
         public function filterAccessControl($filterChain)

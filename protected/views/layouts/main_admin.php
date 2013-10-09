@@ -63,9 +63,10 @@
                       <div class="column" style="padding: 16px 10px 10px 10px; font-size: 22px; color: white"><strong>Admin Control</strong></div>
                       <div class="column right" style="margin-right: 0px">
                           <div class="row" style="padding-top: 12px">
-                              <div class="column box_top_header"><a href="" style="color: white; text-decoration: none">Add New Property</a></div>
-                              <div class="column box_top_header"><a href="" style="color: white; text-decoration: none">Search Property</a></div>
-                              <div class="column box_top_header"><a href="" style="color: white; text-decoration: none">Edit Profile</a></div>
+                              <div id="menu_add_new_property" class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/addproperty" style="color: white; text-decoration: none">Add New Property</a></div>
+                              <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin" style="color: white; text-decoration: none">Search Property</a></div>
+                              <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/featuredproperty" style="color: white; text-decoration: none">Featured Properties</a></div>
+                              <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/profile" style="color: white; text-decoration: none">Edit Profile</a></div>
                               <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/logout" style="color: white; text-decoration: none">Logout</a></div>
                               <div class="clearfix"></div>
                           </div>
