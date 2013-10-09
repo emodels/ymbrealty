@@ -1,9 +1,22 @@
 <script type="text/javascript">
-$(".lnk_remove").die().live('click', function() {
-    var str_array = $('#image_others').val();
-    str_array = str_array.replace($(this).parent().attr('id') + ',', '');
-    $('#image_others').val(str_array);
-    $(this).parent().remove();
+$(document).ready(function(){
+    $(".lnk_remove").die().live('click', function() {
+        var str_array = $('#image_others').val();
+        str_array = str_array.replace($(this).parent().attr('id') + ',', '');
+        str_array = str_array.replace($(this).parent().attr('id'), '');
+        $('#image_others').val(str_array);
+        $(this).parent().remove();
+    });
+    
+    $('input[type=checkbox]').click(function(){
+        if ($('input:checked').length > 0){
+            $('.checkboxgroup').removeClass('error');
+            $('#category_em_').css('display','none');
+        } else {
+            $('.checkboxgroup').addClass('error');
+            $('#category_em_').css('display','block');
+        }
+    });
 });
 
 function UpdateOtherImages(filename){
@@ -19,6 +32,32 @@ function UpdateOtherImages(filename){
     d = new Date();
     var str_image = '<div id="' + filename + '" class="column" style="text-align: center"><img src="<?php echo Yii::app()->baseUrl; ?>/property_images/' + filename + '?' + d.getTime() + '" class="upload_image" /><br/><a class="lnk_remove" href="javascript:return false;">Delete</a></div>';
     $('#div_img_other').html($('#div_img_other').html() + str_image);
+}
+
+function formSend(form, data, hasError){
+    $('.checkboxgroup').removeClass('error');
+    $('#img_main').parent().removeClass('error'); 
+    $('#category_em_').css('display','none');
+    $('#main_image_em_').css('display','none');
+    
+    if($('input:checked').length==0){
+       $('.checkboxgroup').addClass('error');
+       $('#category_em_').css('display','block');
+       hasError = true;
+    }
+    
+    if($('#Property_image_main').val()==''){
+       $('#img_main').parent().addClass('error'); 
+       $('#main_image_em_').css('display','block');
+       hasError = true;
+    }
+    
+    if (!hasError){
+        return true;
+    } else {
+        $(window).scrollTop($('.column .error :first').offset().top);
+        return false;
+    }
 }
 </script>
 <style type="text/css">
@@ -63,7 +102,7 @@ background-image: linear-gradient(to bottom, #559ABD 0%, #002A3D 100%);
         'enableClientValidation' => true,
         'clientOptions' => array(
             'validateOnSubmit' => true,
-            'afterValidate'=>'js:alert("ssss")'
+            'afterValidate'=>'js:formSend'
         ),
     ));
     ?>
@@ -139,6 +178,7 @@ background-image: linear-gradient(to bottom, #559ABD 0%, #002A3D 100%);
                 <?php echo CHtml::checkBoxList('category', '', CHtml::listData(Category::model()->findAll(), 'id', 'name'), array('separator'=>'', 'template'=>'<div><span>{input}</span><span>{label}</span></div>')); ?>
             </div>
             <div class="clearfix"></div>
+            <div style="width: auto; padding-left: 210px; display: none" class="errorMessage" id="category_em_">Please select at least one Category</div>        
         </div>
         <div class="row" style="padding-top: 20px">
             <div class="column" style="width: 200px"><b>Number of Bed Rooms</b></div>
@@ -182,10 +222,11 @@ background-image: linear-gradient(to bottom, #559ABD 0%, #002A3D 100%);
                         'action'=>Yii::app()->createUrl('admin/upload',array('id'=>$model->ref_no)),
                         'allowedExtensions'=>array("jpg","jpeg","gif"),
                         'sizeLimit'=>2*1024*1024,
-                        'onComplete'=>"js:function(id, fileName, responseJSON){ $('#Property_image_main').val(responseJSON['filename']); d = new Date(); $('#img_main').attr('src','" . Yii::app()->baseUrl . "/property_images/' + responseJSON['filename'] + '?' + d.getTime()).css('display','block'); $('#upload_main_image .qq-upload-list').remove(); }",
+                        'onComplete'=>"js:function(id, fileName, responseJSON){ $('#Property_image_main').val(responseJSON['filename']); d = new Date(); $('#img_main').attr('src','" . Yii::app()->baseUrl . "/property_images/' + responseJSON['filename'] + '?' + d.getTime()).css('display','block'); $('#upload_main_image .qq-upload-list').remove(); $('#main_image_em_').css('display','none'); $('#img_main').parent().removeClass('error'); }",
                         )
                 )); ?></div>
             <div class="clearfix"></div>
+            <div style="width: auto; padding-left: 210px; display: none" class="errorMessage" id="main_image_em_">Please Upload Main Image</div>        
         </div>
         <div class="row" style="padding-top: 10px">
             <div class="column" style="width: 200px"><b>Additional Photos</b></div>

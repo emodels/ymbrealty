@@ -103,9 +103,34 @@ class AdminController extends Controller
             $model = new Property();
             
             //-----Get Max value-----------
-            $prop_max = Property::model()->find(array('order'=>'ref_no DESC'));
+            $prop_max = Property::model()->find(array('order'=>'id DESC'));
             $model->ref_no = $prop_max->ref_no + 1;
             //-----------------------------
+            
+            if (isset($_POST['Property'])) {
+                $model->attributes = $_POST['Property'];
+
+                $model->min_to_merida = 'n/a';
+                $model->min_to_beach = 'n/a';
+                $model->image_top_left = 'n/a';
+                $model->image_top_right = 'n/a';
+                $model->image_bottom_left = 'n/a';
+                $model->image_bottom_right = 'n/a';
+                $model->floor_plan = 'n/a';
+                $model->site_plan = 'n/a';
+                $model->featured = 0;
+                $model->status = 1;
+                $model->date_created = Yii::app()->dateFormatter->format('yyyy-MM-dd', time());
+                $model->date_modified = Yii::app()->dateFormatter->format('yyyy-MM-dd', time());
+                $model->list_date = Yii::app()->dateFormatter->format('yyyy-MM-dd', strtotime($model->list_date));
+                
+                if ($model->save()) {
+                    Yii::app()->user->setFlash('success', 'New Property Added');
+                    $this->refresh();
+                } else {
+                    var_dump($model->getErrors());
+                }
+            }
             
             $this->render('addproperty', array('model' => $model));
         }
