@@ -17,7 +17,7 @@ class AdminController extends Controller
             $dataProvider = new CActiveDataProvider('Property', array('pagination' => array('pageSize' => 50)));
             
             if (isset($_POST['mode'])) {
-                unset(Yii::app()->Session['dataProvider']);
+                unset(Yii::app()->Session['criteria']);
             }
             
             if (isset($_POST['Property'])) {
@@ -98,12 +98,12 @@ class AdminController extends Controller
                 //--------------------------------------------------------------
                 
                 $dataProvider = new CActiveDataProvider('Property', array('criteria'=>$criteria, 'pagination' => array('pageSize' => 50)));
-                Yii::app()->Session['dataProvider'] = $dataProvider;
+                Yii::app()->Session['criteria'] = $criteria;
             }
             
-            if (Yii::app()->request->isAjaxRequest && isset(Yii::app()->Session['dataProvider'])) {
+            if (Yii::app()->request->isAjaxRequest && isset(Yii::app()->Session['criteria'])) {
                 if ($_GET['ajax'] == 'grid_property') {
-                    $dataProvider = Yii::app()->Session['dataProvider'];
+                    $dataProvider = new CActiveDataProvider('Property', array('criteria'=>Yii::app()->Session['criteria'], 'pagination' => array('pageSize' => 50)));
                     $this->renderPartial('/admin/_search_grid_view', array('dataProvider' => $dataProvider), false, false);
                 }
                 Yii::app()->end();
@@ -229,7 +229,67 @@ class AdminController extends Controller
         }
         
         public function actionFeaturedProperty(){
-                $this->render('featuredproperty');
+                $model = array();
+                $featured_properties = Property::model()->findAll('featured = 1');
+
+                $int_count = 1;
+                foreach ($featured_properties as $value) {
+                    $model["proprty_" . $int_count] = $value->ref_no;
+                    $int_count++;
+                }
+                
+                if (isset($_POST['proprty'])) {
+                    //-------Validate Proprty ID-----------
+                    $invalid_prop_id = array();
+                    $model = array();
+                    
+                    $int_count = 1;
+                    foreach ($_POST['proprty'] as $value) {
+                        $model["proprty_" . $int_count] = $value;
+                        
+                        if (!Property::model()->exists("ref_no = '" . $value . "'")){
+                            $invalid_prop_id[] = $value;
+                        }
+                        
+                        $int_count++;
+                    }
+                    //-------------------------------------
+                    
+                    if (count($invalid_prop_id) > 0) {
+                       $message = 'Property #ID ' . implode(",", $invalid_prop_id) . ' not valid, Please enter valid Property #ID';
+                       Yii::app()->user->setFlash('error', $message);
+                       
+                    } else {
+                        Property::model()->updateAll(array('featured'=>0));
+                        Property::model()->updateAll(array('featured'=>1), "ref_no = '" . $_POST['proprty']['1'] . 
+                                                                    "' OR ref_no = '" . $_POST['proprty']['2'] .
+                                                                    "' OR ref_no = '" . $_POST['proprty']['3'] .
+                                                                    "' OR ref_no = '" . $_POST['proprty']['4'] .
+                                                                    "' OR ref_no = '" . $_POST['proprty']['5'] . "'");
+                        Yii::app()->user->setFlash('success', 'Featured Property Updated');
+                        $this->redirect(Yii::app()->baseUrl . '/admin');
+                    }
+                }
+                
+                $this->render('featuredproperty', array('model'=>$model));
+        }
+        
+        public function actionProfile(){
+                $model = User::model()->findByPk(Yii::app()->user->id);
+                
+                if (isset($_POST['User'])) {
+                    $model->attributes = $_POST['User'];
+                    
+                    if ($model->save()){
+                        Yii::app()->user->setFlash('success', "User Profile Updated");
+                        $this->redirect(Yii::app()->baseUrl . '/admin');
+                    }
+                    else{
+                        Yii::app()->user->setFlash('notice', $model->getErrors());
+                    }
+                }
+                
+		$this->render('profile',array('model'=>$model));
         }
         
         public function actionUpload($id)

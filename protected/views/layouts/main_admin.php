@@ -75,7 +75,7 @@
                               <div id="menu_add_new_property" class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/addproperty" style="color: white; text-decoration: none">Add New Property</a></div>
                               <div id="menu_search_property" class="column box_top_header"><a href="javascript:NavigateSearch('<?php echo Yii::app()->request->baseUrl; ?>/admin'); return false;" style="color: white; text-decoration: none">Search Property</a></div>
                               <div id="menu_featured_property" class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/featuredproperty" style="color: white; text-decoration: none">Featured Properties</a></div>
-                              <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/profile" style="color: white; text-decoration: none">Edit Profile</a></div>
+                              <div id="menu_profile"  class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/profile" style="color: white; text-decoration: none">Edit Profile</a></div>
                               <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/logout" style="color: white; text-decoration: none">Logout</a></div>
                               <div class="clearfix"></div>
                           </div>
