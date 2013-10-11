@@ -18,6 +18,15 @@
         <style type="text/css">
             #content { border-top: 0px; }
         </style>
+        <script type="text/javascript">
+            function NavigateSearch(str_URL){
+                var mydiv = document.getElementById('redirect_form').innerHTML = '<form id="form_redirect" method="post" action="' + str_URL + '"><input name="mode" type="hidden" value="init_session" /></form>';
+                f=document.getElementById('form_redirect');
+                if(f){
+                    f.submit();
+                }
+            }
+        </script>
 </head>
 <body>
     <?php
@@ -64,14 +73,14 @@
                       <div class="column right" style="margin-right: 0px">
                           <div class="row" style="padding-top: 12px">
                               <div id="menu_add_new_property" class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/addproperty" style="color: white; text-decoration: none">Add New Property</a></div>
-                              <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin" style="color: white; text-decoration: none">Search Property</a></div>
+                              <div id="menu_search_property"  class="column box_top_header"><a href="javascript:NavigateSearch('<?php echo Yii::app()->request->baseUrl; ?>/admin'); return false;" style="color: white; text-decoration: none">Search Property</a></div>
                               <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/featuredproperty" style="color: white; text-decoration: none">Featured Properties</a></div>
                               <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/profile" style="color: white; text-decoration: none">Edit Profile</a></div>
                               <div class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/logout" style="color: white; text-decoration: none">Logout</a></div>
                               <div class="clearfix"></div>
                           </div>
                       </div>
-                      <div class="clearfix"></div>
+                      <div class="clearfix"><div id="redirect_form"></div></div>
                   </div>
                   <div class="row" style="padding: 10px; background: white">
                       <?php echo $content ?>

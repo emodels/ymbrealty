@@ -45,6 +45,16 @@ function DeleteProperty(id){
     }
 }
 </script>
+<style type="text/css">
+#menu_search_property{
+    background-image: -ms-linear-gradient(top, #559ABD 0%, #002A3D 100%);
+    background-image: -moz-linear-gradient(top, #559ABD 0%, #002A3D 100%);
+    background-image: -o-linear-gradient(top, #559ABD 0%, #002A3D 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #559ABD), color-stop(1, #002A3D));
+    background-image: -webkit-linear-gradient(top, #559ABD 0%, #002A3D 100%);
+    background-image: linear-gradient(to bottom, #559ABD 0%, #002A3D 100%);
+}
+</style>
 <div class="form">
     <?php
     $form = $this->beginWidget('CActiveForm', array(
@@ -88,67 +98,7 @@ function DeleteProperty(id){
         <div style="position: absolute; top: 18px; right: 18px"><input type="submit" value="Search" class="button_orange" style="padding: 10px; font-size: 20px; cursor: pointer"/></div>
     </div>
     <div class="row">
-        <?php
-        $this->widget('zii.widgets.grid.CGridView', array(
-            'id' => 'grid_property',
-            'dataProvider' => $dataProvider,
-            'ajaxUpdate' => true,
-            'htmlOptions'=>array('style'=>'text-align: center'),
-            'enablePagination' => true,
-            'template'=>"{summary}{pager}<br>{items}{pager}",
-            'columns' => array(
-                array(
-                    'name'=>'#ID',
-                    'value'=>'$data->ref_no',
-                    'htmlOptions'=>array('style'=>'text-align: center')
-                ),
-                array(
-                    'name'=>'Title',
-                    'value'=>'$data->title',
-                    'htmlOptions'=>array('style'=>'text-align: left')
-                ),
-                array(
-                    'name'=>'City',
-                    'value'=>'$data->city',
-                    'htmlOptions'=>array('style'=>'text-align: center')
-                ),
-                array(
-                    'name'=>'State',
-                    'value'=>'$data->state0->name',
-                    'htmlOptions'=>array('style'=>'text-align: center')
-                ),
-                array(
-                    'name'=>'Status',
-                    'type'=>'raw',
-                    'value'=>'$data->status == 1 ? "<a href=\'javascript:ChangeStatus(\"Sold\", $data->id)\' title=\'Click here to change Status\'><img src=" . Yii::app()->baseUrl . "/images/ok.png /></a>" : "<a href=\'javascript:ChangeStatus(\"Active\", $data->id)\' title=\'Click here to change Status\'><img src=" . Yii::app()->baseUrl . "/images/sold.png /></a>"',
-                    'htmlOptions'=>array('style'=>'text-align: center')
-                ),
-                array(
-                    'name'=>'Type',
-                    'type'=>'raw',
-                    'value'=>'$data->for_sale == 1 ? "<a href=\'javascript:ChangeType(\"For Rent\", $data->id)\' title=\'Click here to change Type\'><img src=" . Yii::app()->baseUrl . "/images/sale.png /></a>" : "<a href=\'javascript:ChangeType(\"For Sale\", $data->id)\' title=\'Click here to change Type\'><img src=" . Yii::app()->baseUrl . "/images/rent.png /></a>"',
-                    'htmlOptions'=>array('style'=>'text-align: center')
-                ),
-                array(
-                    'name'=>'View',
-                    'type'=>'raw',
-                    'value'=>'"<a href=\'" . Yii::app()->baseUrl . "/property/id/$data->id\' target=\'_blank\'><img src=\'" . Yii::app()->baseUrl . "/images/view.png\'/></a>"',
-                    'htmlOptions'=>array('style'=>'width: 50px; text-align: center')
-                ),
-                array(
-                    'name'=>'Edit',
-                    'type'=>'raw',
-                    'value'=>'"<a href=\'admin/editpropery/$data->id\'><img src=\'" . Yii::app()->baseUrl . "/images/edit.png\'/></a>"',
-                    'htmlOptions'=>array('style'=>'width: 50px; text-align: center')
-                ),
-                array(
-                    'name'=>'Delete',
-                    'type'=>'raw',
-                    'value'=>'"<a href=\'javascript:DeleteProperty($data->id)\' title=\'Click here to Delete this Property\'><img src=" . Yii::app()->baseUrl . "/images/delete.png /></a>"',
-                    'htmlOptions'=>array('style'=>'text-align: center')
-                ),
-        )));
-        ?>
+         <?php $this->renderPartial('/admin/_search_grid_view', array('dataProvider' => $dataProvider), false, false); ?>   
     </div>    
     <?php $this->endWidget(); ?>
 </div>

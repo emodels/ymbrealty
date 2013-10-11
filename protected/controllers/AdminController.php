@@ -15,7 +15,11 @@ class AdminController extends Controller
 	{
             $model = new Property();
             $dataProvider = new CActiveDataProvider('Property', array('pagination' => array('pageSize' => 50)));
-        
+            
+            if (isset($_POST['mode'])) {
+                unset(Yii::app()->Session['dataProvider']);
+            }
+            
             if (isset($_POST['Property'])) {
                 $model->attributes = $_POST['Property'];
                 
@@ -94,6 +98,15 @@ class AdminController extends Controller
                 //--------------------------------------------------------------
                 
                 $dataProvider = new CActiveDataProvider('Property', array('criteria'=>$criteria, 'pagination' => array('pageSize' => 50)));
+                Yii::app()->Session['dataProvider'] = $dataProvider;
+            }
+            
+            if (Yii::app()->request->isAjaxRequest && isset(Yii::app()->Session['dataProvider'])) {
+                if ($_GET['ajax'] == 'grid_property') {
+                    $dataProvider = Yii::app()->Session['dataProvider'];
+                    $this->renderPartial('/admin/_search_grid_view', array('dataProvider' => $dataProvider), false, false);
+                }
+                Yii::app()->end();
             }
             
             $this->render('index', array('model' => $model, 'dataProvider'=>$dataProvider));
@@ -125,6 +138,35 @@ class AdminController extends Controller
                 $model->list_date = Yii::app()->dateFormatter->format('yyyy-MM-dd', strtotime($model->list_date));
                 
                 if ($model->save()) {
+                    
+                    //-------Add Categories--------------
+                    if (isset($_POST['category'])) {
+                        foreach ($_POST['category'] as $value) {
+                            $prop_category = new PropertyCategory();
+                            
+                            $prop_category->property = $model->id;
+                            $prop_category->category = $value;
+                            
+                            $prop_category->save();
+                        }
+                    }
+                    //-----------------------------------
+                    
+                    //-------Add Other Images------------
+                    if (isset($_POST['image_others'])) {
+                        $other_images_array = explode(',', $_POST['image_others']);
+                        
+                        foreach ($other_images_array as $value) {
+                            $prop_image = new PropertyImages();
+                            
+                            $prop_image->property = $model->id;
+                            $prop_image->file_name = $value;
+                            
+                            $prop_image->save();
+                        }
+                    }
+                    //-----------------------------------
+                    
                     Yii::app()->user->setFlash('success', 'New Property Added');
                     $this->refresh();
                 } else {
@@ -136,7 +178,8 @@ class AdminController extends Controller
         }
         
         public function actionEditPropery($id){
-            echo $id;
+            $model = Property::model()->findByPk($id);
+            $this->render('editproperty', array('model' => $model));
         }
         
         public function actionUpload($id)
@@ -164,7 +207,7 @@ class AdminController extends Controller
                 Yii::app()->user->setReturnUrl(Yii::app()->request->requestUri);
                 $this->redirect(Yii::app()->baseUrl . '/site/login');
             }
-
+            
             $filterChain->run();
         }         
 }
