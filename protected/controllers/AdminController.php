@@ -179,7 +179,57 @@ class AdminController extends Controller
         
         public function actionEditPropery($id){
             $model = Property::model()->findByPk($id);
+            
+            if (isset($_POST['Property'])) {
+                $model->attributes = $_POST['Property'];
+                $model->date_modified = Yii::app()->dateFormatter->format('yyyy-MM-dd', time());
+                
+                if ($model->save()) {
+                    
+                    //-------Add Categories--------------
+                    if (isset($_POST['category'])) {
+                        PropertyCategory::model()->deleteAll('property = :id', array(':id' => $model->id));
+                        
+                        foreach ($_POST['category'] as $value) {
+                            $prop_category = new PropertyCategory();
+                            
+                            $prop_category->property = $model->id;
+                            $prop_category->category = $value;
+                            
+                            $prop_category->save();
+                        }
+                    }
+                    //-----------------------------------
+                    
+                    //-------Add Other Images------------
+                    if (isset($_POST['image_others'])) {
+                        PropertyImages::model()->deleteAll('property = :id', array(':id' => $model->id));
+                        
+                        $other_images_array = explode(',', $_POST['image_others']);
+                        
+                        foreach ($other_images_array as $value) {
+                            $prop_image = new PropertyImages();
+                            
+                            $prop_image->property = $model->id;
+                            $prop_image->file_name = $value;
+                            
+                            $prop_image->save();
+                        }
+                    }
+                    //-----------------------------------
+                    
+                    Yii::app()->user->setFlash('success', 'Property Updated');
+                    $this->redirect(Yii::app()->baseUrl . '/admin');
+                } else {
+                    var_dump($model->getErrors());
+                }
+            }
+   
             $this->render('editproperty', array('model' => $model));
+        }
+        
+        public function actionFeaturedProperty(){
+                $this->render('featuredproperty');
         }
         
         public function actionUpload($id)

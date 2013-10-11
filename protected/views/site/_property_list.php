@@ -11,7 +11,12 @@
             <div class="column" style="width: 80px"><b>State :</b></div>
             <div class="column" style="width: 170px"><?php echo $data->state0->name; ?></div>
             <div class="column" style="width: 80px"><b>Price :</b></div>
-            <div class="column" style="width: 200px">$ <?php echo Yii::app()->numberFormatter->format('0,000', $data->price); ?> USD</div>
+            <div class="column" style="width: 200px">
+                $ <?php echo Yii::app()->numberFormatter->format('0,000', $data->price); ?> USD
+                <?php if ($data->mexican_peso_price > 0){ ?>
+                <br/>$ <?php echo Yii::app()->numberFormatter->format('0,000', $data->mexican_peso_price); ?> MXN
+                <?php } ?>
+            </div>
             <div class="clearfix"></div>
         </div>
         <div style="font-size: 15px; text-align: justify; padding-top: 20px"><?php echo $data->short_desc; ?></div>

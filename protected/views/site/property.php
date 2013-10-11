@@ -56,7 +56,13 @@
     <a href="<?php echo Yii::app()->baseUrl; ?>/PropertyListing" style="font-size: 16px">Back to Property Listing</a>
     <div class="row" style="border: solid 4px #09f; border-bottom: none; border-top-left-radius: 10px; border-top-right-radius: 10px; padding: 20px; margin-top: 20px">
         <div style="font-size: 27px; color: black"><b>#<?php echo $model->title; ?></b></div>
-        <div style="font-size: 22px; color: black; padding-top: 10px"><?php echo $model->city; ?>, <?php echo $model->state0->name; ?> - $ <?php echo Yii::app()->numberFormatter->format('0,000', $model->price); ?> USD</div>
+        <div style="font-size: 22px; color: black; padding-top: 10px">
+            <?php echo $model->city; ?>, <?php echo $model->state0->name; ?> - $ 
+            <?php echo Yii::app()->numberFormatter->format('0,000', $model->price); ?> USD
+            <?php if ($model->mexican_peso_price > 0){ ?>
+            / $ <?php echo Yii::app()->numberFormatter->format('0,000', $model->mexican_peso_price); ?> MXN
+            <?php } ?>
+        </div>
         <div class="row" style="display: inline-block; padding: 5px 50px 20px 50px">
             <div class="column">
                 <div class="row" style="padding-top: 200px">
