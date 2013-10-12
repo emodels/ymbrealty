@@ -53,7 +53,7 @@
     }
 </script>
 <div class="column" style="background: white; padding: 20px 30px 10px 30px; width: 1114px; margin-left: -1px; border-top: solid 1px silver; margin: 0px; text-align: center">
-    <a href="<?php echo Yii::app()->baseUrl; ?>/PropertyListing" style="font-size: 16px">Back to Property Listing</a>
+    <a href="<?php echo Yii::app()->baseUrl; ?>/PropertyListing" style="font-size: 16px; color: black">Back to Property Listing</a>
     <div class="row" style="border: solid 4px #09f; border-bottom: none; border-top-left-radius: 10px; border-top-right-radius: 10px; padding: 20px; margin-top: 20px">
         <div style="font-size: 27px; color: black"><b>#<?php echo $model->title; ?></b></div>
         <div style="font-size: 22px; color: black; padding-top: 10px">
@@ -71,7 +71,7 @@
             </div>
             <div class="column">
                 <div class="row" style="padding-top: 20px">
-                    <a  id="lnkMainImage" href="javascript:return false;" style="cursor: default"><img id="imgMain" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $model->image_main; ?>" style="width: 720px; height: 480px; border: solid 1px black"/></a>
+                    <a  id="lnkMainImage" href="javascript:return false;" style="cursor: default"><img id="imgMain" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $model->image_main; ?>" style="width: 720px; height: 480px; border: solid 1px black; border-radius: 30px"/></a>
                 </div>
             </div>
             <div class="column">
@@ -82,16 +82,20 @@
             <div class="clearfix"></div>
         </div>
         <div class="row" style="padding: 10px 0 20px 0; text-align: center;">
-            <div style="display:inline-block;">
-                <div style="width: 660px; text-align: center">
-                    <div style="display: inline-block;">
-                    <?php $count = 1; ?>    
+            <div style="display:inline-block; margin-left: -8px">
+                <div style="width: 760px; text-align: center">
+                    <?php $count = 1; $row_count = 1; ?>    
                     <?php foreach ($model->propertyImages as $image) { ?>
-                    <div id="slide_<?php echo $count; ?>" class="column" style="padding: 0px; margin: 5px; width: 120px"><a href="javascript:LoadImage('<?php echo $count; ?>');"><img id="img_<?php echo $count; ?>" class="slide_image" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $image->file_name; ?>" style="width: 115px; height: 99px; border: solid 2px black;"/></a></div>
-                    <?php $count++; ?>
+                        <?php if($row_count == 1){ ?>
+                        <div style="display: inline-block;">
+                        <?php } ?>
+                            <div id="slide_<?php echo $count; ?>" class="column" style="padding: 0px; margin: 5px; width: 141px"><a href="javascript:LoadImage('<?php echo $count; ?>');"><img id="img_<?php echo $count; ?>" class="slide_image" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $image->file_name; ?>" style="width: 115px; height: 99px; border: solid 2px black; border-radius: 20px"/></a></div>
+                        <?php if ($row_count == 5 || count($model->propertyImages) == $count) { $row_count = 0; ?>
+                        </div>
+                        <?php } ?>
+                    <?php $count++; $row_count++; ?>
                     <?php } ?>
                     <div class="clearfix"></div>
-                    </div>
                 </div>
             </div>
         </div>

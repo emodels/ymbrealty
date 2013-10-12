@@ -71,17 +71,16 @@
       <div id="footer">
           <div class="outer_layer">
               <div class="inner_layer" style="text-align: center">
-                  <div style="margin-left: 510px; font-size: 24px; color: black; font-weight: bold; padding: 10px 0 5px 0; position: absolute">Contact Us</div>
+                  <div style="margin-left: 510px; font-size: 30px; color: black; font-weight: bold; padding: 3px 0 5px 0; position: absolute">Contact Us</div>
                   <div class="row" style="padding: 10px 10px 20px 10px; display: inline-block">
                       <div class="column" style="width: 545px; padding-right: 10px; margin-left: 10px">
                           <div class="row" style="text-align: center; display: inline-block; padding-left: 17px">
-                              <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/english_flag.png"/></div>
                               <div class="column" style="font-size: 16px; color: navy; font-weight: bolder; padding-top: 7px">English</div>
                               <div class="clearfix"></div>
                           </div>
                           <div style="margin-top: 10px; padding: 10px; background: white; border-radius: 20px; border: solid 1px gray">
                               <div class="row">
-                                  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/rob_harker.png"/>
+                                  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/rob_harker.jpg"/>
                                   <div style="font-size: 22px; color: black; font-weight: bolder; margin: 10px 0 5px 0">Rob Harker</div>
                                   <div style="font-size: 18px; color: gray; font-weight: bolder; margin: 5px 0 10px 0">"Broker Owner"</div>
                               </div>
@@ -118,14 +117,13 @@
                       </div>
                       <div class="column" style="width: 545px">
                           <div class="row" style="text-align: center; display: inline-block; padding-left: 17px">
-                              <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spanish_flag.png"/></div>
                               <div class="column" style="font-size: 16px; color: navy; font-weight: bolder; padding-top: 6px">Spanish</div>
                               <div class="clearfix"></div>
                           </div>
                           <div style="margin-top: 12px; padding: 10px; background: white; border-radius: 20px; border: solid 1px gray">
-                              <div class="row">
-                                  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/roxana_hernandez.png"/>
-                                  <div style="font-size: 22px; color: black; font-weight: bolder; margin: 10px 0 10px 0">Roxana Hernandez</div>
+                              <div class="row" style="padding-top: 19px">
+                                  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/roxana_hernandez.jpg"/>
+                                  <div style="font-size: 22px; color: black; font-weight: bolder; margin: 10px 0 5px 0">Roxana Hernandez</div>
                                   <div style="font-size: 18px; color: gray; font-weight: bolder; margin: 5px 0 10px 0">"Listing Manager"</div>
                               </div>
                               <div class="row" style="text-align: left; padding-left: 33px">
@@ -150,14 +148,14 @@
                                       <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px"><a href="mailto:roxana@ymbrealty.com">roxana@ymbrealty.com</a></div>
                                       <div class="clearfix"></div>
                                   </div>
-                                  <div class="row" style="padding-top:21px">&nbsp;</div>
+                                  <div class="row" style="padding-top:26px">&nbsp;</div>
                               </div>
                               <div class="clearfix"></div>
                           </div>
                       </div>
                   </div>
               </div>
-              <div class="row" style="text-align: center; padding: 10px; background: white; font-size: 22px; color: red">Enjoy the life you have always wanted to live...Lower taxes – fewer laws -  near perfect weather <br/> – and a hassle free lifestyle  !!!</div>
+              <div class="row" style="text-align: center; padding: 10px; background: white; font-size: 22px; color: black">Enjoy the life you have always wanted to live...Lower taxes – Fewer laws -  Near perfect weather <br/> – and a hassle free lifestyle  !!!</div>
               <div class="row" style="text-align: center; padding: 10px; background: white; font-size: 24px; color: black; font-weight: bold">We look forward to speaking with you  !!!</div>
               <div class="row" style="text-align: center">
                   <div style="display: inline-block; width: 300px; padding: 20px 0 20px 50px">
