@@ -63,26 +63,26 @@
             / $ <?php echo Yii::app()->numberFormatter->format('0,000', $model->mexican_peso_price); ?> MXN
             <?php } ?>
         </div>
-        <div class="row" style="display: inline-block; padding: 5px 50px 20px 50px">
-            <div class="column">
+        <div class="row" style="display: inline-block; padding: 5px 10px 20px 10px">
+            <div class="column" style="margin-right: 0px">
                 <div class="row" style="padding-top: 200px">
-                    <a href="javascript:return false;" id="lnk_back" style="opacity: 0.3; cursor: default"><img src="<?php echo Yii::app()->baseUrl; ?>/images/back_button.png"/></a>
+                    <a href="javascript:return false;" id="lnk_back" style="opacity: 0.3; cursor: default"><img src="<?php echo Yii::app()->baseUrl; ?>/images/back_button.png" style="width: 150px"/></a>
                 </div>
             </div>
-            <div class="column">
+            <div class="column" style="margin-right: 0px">
                 <div class="row" style="padding-top: 20px">
                     <a  id="lnkMainImage" href="javascript:return false;" style="cursor: default"><img id="imgMain" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $model->image_main; ?>" style="width: 720px; height: 480px; border: solid 1px black; border-radius: 30px"/></a>
                 </div>
             </div>
-            <div class="column">
+            <div class="column" style="margin-right: 0px">
                 <div class="row" style="padding-top: 200px">
-                    <a href="javascript:return false;" id="lnk_next"><img src="<?php echo Yii::app()->baseUrl; ?>/images/next_button.png"/></a>
+                    <a href="javascript:return false;" id="lnk_next"><img src="<?php echo Yii::app()->baseUrl; ?>/images/next_button.png" style="width: 150px"/></a>
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
         <div class="row" style="padding: 10px 0 20px 0; text-align: center;">
-            <div style="display:inline-block; margin-left: -8px">
+            <div style="display:inline-block;">
                 <div style="width: 760px; text-align: center">
                     <?php $count = 1; $row_count = 1; ?>    
                     <?php foreach ($model->propertyImages as $image) { ?>
