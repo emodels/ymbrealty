@@ -36,12 +36,12 @@
           <div id="header">
               <div id="menu_top">
                   <div class="row">
-                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="<?php echo Yii::app()->baseUrl; ?>/index.php" class="active_link">Home</a></div>
-                      <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sun_2.jpg"></div>
+                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a id="lnk_home" href="<?php echo Yii::app()->baseUrl; ?>/index.php" class="active_link">Home</a></div>
+                      <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sun_2.jpg" id="img_home"></div>
                   </div>
                   <div class="row" style="margin-top: 28px">
-                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="<?php echo Yii::app()->baseUrl; ?>/contact" class="link">Contact Us</a></div>
-                      <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sun_1.jpg"></div>
+                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="<?php echo Yii::app()->baseUrl; ?>/contact" class="link" id="lnk_contact">Contact Us</a></div>
+                      <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sun_1.jpg" id="img_contact"></div>
                   </div>
               </div>
               <div id="pay_your_airfare">“I pay your airfare and accommodations when you buy and renovate with YMB Realty.”</div>
@@ -120,7 +120,7 @@
                               <div class="clearfix"></div>
                           </div>
                           <div style="margin-top: 12px; padding: 10px; background: white; border-radius: 20px; border: solid 1px gray">
-                              <div class="row" style="padding-top: 19px">
+                              <div class="row" style="padding-top: 0px">
                                   <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/roxana_hernandez.jpg"/>
                                   <div style="font-size: 22px; color: black; font-weight: bolder; margin: 10px 0 5px 0">Roxana Hernandez</div>
                                   <div style="font-size: 18px; color: gray; font-weight: bolder; margin: 5px 0 10px 0">"Listing Manager"</div>
@@ -142,7 +142,7 @@
                                       <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px"><a href="mailto:roxana@ymbrealty.com">roxana@ymbrealty.com</a></div>
                                       <div class="clearfix"></div>
                                   </div>
-                                  <div class="row" style="padding-top:48px">&nbsp;</div>
+                                  <div class="row" style="padding-top:67px">&nbsp;</div>
                               </div>
                               <div class="clearfix"></div>
                           </div>

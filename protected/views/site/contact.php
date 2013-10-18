@@ -1,63 +1,54 @@
-<div class="column" style="padding: 10px">
-    <h1>Contact Us - (This page will be developed under Milestone - 3)</h1>
-    <?php if (Yii::app()->user->hasFlash('contact')): ?>
-        <div class="flash-success">
-            <?php echo Yii::app()->user->getFlash('contact'); ?>
+<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#lnk_home').removeClass('active_link').addClass('link'); 
+    $('#lnk_contact').removeClass('link').addClass('active_link'); 
+    $('#img_home').attr('src', '<?php echo Yii::app()->baseUrl; ?>/images/sun_1.jpg');
+    $('#img_contact').attr('src', '<?php echo Yii::app()->baseUrl; ?>/images/sun_2.jpg');
+});
+</script>
+<div class="form">
+    <?php
+    $form = $this->beginWidget('CActiveForm', array(
+        'id' => 'contact-form',
+        'enableClientValidation' => true,
+        'clientOptions' => array(
+            'validateOnSubmit' => true,
+        ),
+    ));
+    ?>
+    <h1 style="font-size: 22px; padding: 10px"><b>Contact Us</b></h1>
+    <div class="row" style="position: relative; padding: 20px; margin-left: 10px; border: solid 1px silver; background: #f7f7f7; border-radius: 10px; font-size: 15px">
+        <div class="row">
+            <div class="column" style="width: 200px"><b>Name</b></div>
+            <div class="column"><?php echo $form->textField($model, 'name', array('style'=>'width: 400px')); ?><?php echo $form->error($model, 'name', array('style'=>'width: 400px')); ?></div>
+            <div class="clearfix"></div>
         </div>
-    <?php else: ?>
-        <p>
-            If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-        </p>
-        <div class="form">
-            <?php
-            $form = $this->beginWidget('CActiveForm', array(
-                'id' => 'contact-form',
-                'enableClientValidation' => true,
-                'clientOptions' => array(
-                    'validateOnSubmit' => true,
-                ),
-                    ));
-            ?>
-            <p class="note">Fields with <span class="required">*</span> are required.</p>
-                <?php echo $form->errorSummary($model); ?>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'name'); ?>
-    <?php echo $form->textField($model, 'name'); ?>
-                <?php echo $form->error($model, 'name'); ?>
-            </div>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'email'); ?>
-    <?php echo $form->textField($model, 'email'); ?>
-                <?php echo $form->error($model, 'email'); ?>
-            </div>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'subject'); ?>
-    <?php echo $form->textField($model, 'subject', array('size' => 60, 'maxlength' => 128)); ?>
-                <?php echo $form->error($model, 'subject'); ?>
-            </div>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'body'); ?>
-            <?php echo $form->textArea($model, 'body', array('rows' => 6, 'cols' => 50)); ?>
-            <?php echo $form->error($model, 'body'); ?>
-            </div>
-                <?php if (CCaptcha::checkRequirements()): ?>
-                <div class="row">
-                        <?php echo $form->labelEx($model, 'verifyCode'); ?>
-                    <div>
-        <?php $this->widget('CCaptcha'); ?>
-        <?php echo $form->textField($model, 'verifyCode'); ?>
-                    </div>
-                    <div class="hint">Please enter the letters as they are shown in the image above.
-                        <br/>Letters are not case-sensitive.</div>
-                <?php echo $form->error($model, 'verifyCode'); ?>
-                </div>
-                <?php endif; ?>
-            <div class="row buttons">
-            <?php echo CHtml::submitButton('Submit'); ?>
-            </div>
-        <?php $this->endWidget(); ?>
-        </div><!-- form -->
-<?php endif; ?>
-</div>
-<div class="column" style="width: 1164px; background: white; margin-top: 11px; height: 20px"></div>
-<div class="clearfix"></div>
+        <div class="row" style="padding-top: 10px">
+            <div class="column" style="width: 200px"><b>Address</b></div>
+            <div class="column"><?php echo $form->textField($model, 'address', array('style'=>'width: 400px')); ?><?php echo $form->error($model, 'address', array('style'=>'width: 400px')); ?></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="row" style="padding-top: 10px">
+            <div class="column" style="width: 200px"><b>Skype or Contact no</b></div>
+            <div class="column"><?php echo $form->textField($model, 'contact_number', array('style'=>'width: 200px')); ?><?php echo $form->error($model, 'contact_number', array('style'=>'width: 200px')); ?></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="row" style="padding-top: 10px">
+            <div class="column" style="width: 200px"><b>Email Address</b></div>
+            <div class="column"><?php echo $form->textField($model, 'email', array('style'=>'width: 200px')); ?><?php echo $form->error($model, 'email', array('style'=>'width: 200px')); ?></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="row" style="padding-top: 10px">
+            <div class="column" style="width: 200px"><b>Message</b></div>
+            <div class="column"><?php echo $form->textArea($model, 'message', array('rows'=>4, 'style'=>'width: 400px')); ?><?php echo $form->error($model, 'message', array('style'=>'width: 400px')); ?></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="row" style="padding-top: 10px">
+            <div class="column" style="width: 200px">&nbsp;</div>
+            <div class="column"><input type="submit" value="Submit Your Enquiry" class="button_orange" style="padding: 10px; font-size: 20px; cursor: pointer"/></div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <?php $this->endWidget(); ?>
+</div>    

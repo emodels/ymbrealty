@@ -87,6 +87,12 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'info@primesolve.com.au',
+                'SMTP_Host'=>'smtpout.asia.secureserver.net',
+                'SMTP_Port'=>'465',
+                'SMTP_Username'=>'info@primesolve.com.au',
+                'SMTP_password'=>'prime@solve',
+                'SMTPSecure'=>TRUE,
+                'SMTPDebug'=>FALSE
 	),
 );

@@ -105,5 +105,5 @@ Yii::app()->clientScript->registerMetaTag($model->keywords, 'keywords', null, ar
     </div>
 </div>
 <div class="column" style="background: white; padding: 20px 10px 20px 10px; width: 1154px; margin-left: -1px; margin: 0px; text-align: center; font-size: 22px; color: black">I can show you <b>any</b> property on <b>any</b> web site including  for <b>“sale by owners”</b> and properties  <b>“represented as  exclusive”</b> by other realtors.</div>
-<div class="column" style="background: white; padding: 20px 10px 20px 10px; width: 1154px; margin-left: -1px; margin: 0px; text-align: center;"><a href="<?php echo Yii::app()->baseUrl; ?>/contact"><img src="<?php echo Yii::app()->baseUrl; ?>/images/contact_us_property.png" class="opacity_effect"/></a></div>
+<div class="column" style="background: white; padding: 20px 10px 20px 10px; width: 1154px; margin-left: -1px; margin: 0px; text-align: center;"><a href="<?php echo Yii::app()->baseUrl; ?>/contact?PROPID=<?php echo $model->ref_no; ?>"><img src="<?php echo Yii::app()->baseUrl; ?>/images/contact_us_property.png" class="opacity_effect"/></a></div>
 <div class="clearfix"></div>

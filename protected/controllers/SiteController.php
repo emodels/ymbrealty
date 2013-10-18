@@ -94,19 +94,73 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
-		$model=new ContactForm;
-		if(isset($_POST['ContactForm']))
-		{
-			$model->attributes=$_POST['ContactForm'];
-			if($model->validate())
-			{
-				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
-				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
-			}
-		}
-		$this->render('contact',array('model'=>$model));
+            $model=new ClientLedger();
+            $prop_array = array();
+            
+            if (isset(Yii::app()->session['contact_prop_array'])) {
+                $prop_array = Yii::app()->session['contact_prop_array'];
+            }
+            
+            if (isset($_GET['PROPID'])) {
+               if (!in_array($_GET['PROPID'], $prop_array)){ 
+                   $prop_array[] =  $_GET['PROPID'];
+                   Yii::app()->session['contact_prop_array'] = $prop_array;
+               }
+            }
+            
+            $message = '';
+            foreach ($prop_array as $value) {
+                $message = $message . 'Property #' . $value . ', ';
+            }
+            $model->message = $message;
+            
+            if(isset($_POST['ClientLedger']))
+            {
+                $model->attributes=$_POST['ClientLedger'];
+                $model->entry_date = Yii::app()->dateFormatter->format('yyyy-MM-dd', time());
+                $model->status_updated_date = Yii::app()->dateFormatter->format('yyyy-MM-dd', time());
+                $model->status = 'Initial Client Contact';
+                $model->notes = 'n/a';
+                
+                if($model->save()){
+                    $message = $this->renderPartial('//email/template/contact_form_submit', array('model'=>$model), true);
+
+                    if (isset($model) && isset($message) && $message != "") {
+                        $mailer = Yii::createComponent('application.extensions.mailer.EMailer');
+                        $mailer->Host = Yii::app()->params['SMTP_Host'];
+                        $mailer->Port = Yii::app()->params['SMTP_Port'];
+                        if (Yii::app()->params['SMTPSecure'] == TRUE){
+                            $mailer->SMTPSecure = 'ssl';
+                        }
+                        $mailer->IsSMTP();
+                        $mailer->SMTPAuth = true;
+                        $mailer->Username = Yii::app()->params['SMTP_Username'];
+                        $mailer->Password = Yii::app()->params['SMTP_password'];
+                        $mailer->From = Yii::app()->params['SMTP_Username'];
+                        $mailer->AddReplyTo(Yii::app()->params['SMTP_Username']);
+                        $mailer->AddAddress($model->email);
+                        $mailer->AddCC(Yii::app()->params['adminEmail']);
+                        $mailer->FromName = 'YMB Realty';
+                        $mailer->CharSet = 'UTF-8';
+                        $mailer->Subject = 'YMB Realty : Client Enquiry - #' . $model->id;
+                        $mailer->IsHTML();
+                        $mailer->Body = $message;
+                        $mailer->SMTPDebug  = Yii::app()->params['SMTPDebug'];
+
+                        try{     
+                            $mailer->Send();
+                        }
+                        catch (Exception $ex){
+                            echo $ex->getMessage();
+                        }
+                    }
+                    
+                    unset(Yii::app()->session['contact_prop_array']);
+                    Yii::app()->user->setFlash('success','Thank you for contacting us. We will respond to you as soon as possible.');
+                    $this->redirect(Yii::app()->baseUrl); 
+                }
+            }
+            $this->render('contact',array('model'=>$model));
 	}
 
 	/**
