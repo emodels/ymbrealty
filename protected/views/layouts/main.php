@@ -3,7 +3,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
-
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
@@ -59,7 +58,7 @@
               <div class="right" id="sidebar">
                   <div class="column orange_line" style="margin: 0px"></div>
                   <div class="column" style="margin: 25px 0 5px 7px">
-                      <div style="text-align: center; color: red; font-size: 22px; font-weight: bold; padding-bottom: 25px">$  MILLION  $<br/>Dollar Resources</div>
+                      <div style="text-align: center; color: red; font-size: 22px; font-weight: bold; padding-bottom: 15px">$  MILLION  $<br/>Dollar Resources<br/><font style="color: black; font-size: 18px">CLICK BELOW</font></div>
                       <div><a href="http://retiretomexicoblog.com/" target="_blank"><img border="0" src="<?php echo Yii::app()->request->baseUrl; ?>/images/20secrets.jpg"></a></div>
                       <div style="padding-top: 30px"><a href="about"><img border="0" src="<?php echo Yii::app()->request->baseUrl; ?>/images/Testimonials.jpg"></a></div>
                   </div>
@@ -139,16 +138,11 @@
                                       <div class="clearfix"></div>
                                   </div>
                                   <div class="row" style="padding-top:25px">
-                                      <div class="column" style="width: 125px; font-size: 14px; color: black; font-weight: bold">Cell :</div>
-                                      <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px">999-129-7321</div>
-                                      <div class="clearfix"></div>
-                                  </div>
-                                  <div class="row" style="padding-top:25px">
                                       <div class="column" style="width: 125px; font-size: 14px; color: black; font-weight: bold">Email :</div>
                                       <div class="column" style="font-size: 14px; color: gray; font-weight: bold; padding-left: 10px"><a href="mailto:roxana@ymbrealty.com">roxana@ymbrealty.com</a></div>
                                       <div class="clearfix"></div>
                                   </div>
-                                  <div class="row" style="padding-top:26px">&nbsp;</div>
+                                  <div class="row" style="padding-top:48px">&nbsp;</div>
                               </div>
                               <div class="clearfix"></div>
                           </div>

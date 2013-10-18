@@ -1,4 +1,8 @@
-<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+<?php 
+Yii::app()->clientScript->registerCoreScript('jquery');
+$this->pageTitle = $model->title; 
+Yii::app()->clientScript->registerMetaTag($model->keywords, 'keywords', null, array('id'=>'meta_keywords')); 
+?>
 <style type="text/css">
     #sidebar{ display: none; }
     #content{ padding-top: 0px; }
@@ -58,25 +62,22 @@
         <div style="font-size: 27px; color: black"><b>#<?php echo $model->title; ?></b></div>
         <div style="font-size: 22px; color: black; padding-top: 10px">
             <?php echo $model->city; ?>, <?php echo $model->state0->name; ?> - $ 
-            <?php echo Yii::app()->numberFormatter->format('0,000', $model->price); ?> USD
-            <?php if ($model->mexican_peso_price > 0){ ?>
-            / $ <?php echo Yii::app()->numberFormatter->format('0,000', $model->mexican_peso_price); ?> MXN
-            <?php } ?>
+            <?php echo Yii::app()->numberFormatter->format('0,000', $model->price); ?>.USD
         </div>
         <div class="row" style="display: inline-block; padding: 5px 10px 20px 10px">
             <div class="column" style="margin-right: 0px">
                 <div class="row" style="padding-top: 200px">
-                    <a href="javascript:return false;" id="lnk_back" style="opacity: 0.3; cursor: default"><img src="<?php echo Yii::app()->baseUrl; ?>/images/back_button.png" style="width: 150px"/></a>
+                    <a href="javascript:return false;" id="lnk_back" style="opacity: 0.3; cursor: default"><img src="<?php echo Yii::app()->baseUrl; ?>/images/back_button.png" style="width: 105px"/></a>
                 </div>
             </div>
             <div class="column" style="margin-right: 0px">
                 <div class="row" style="padding-top: 20px">
-                    <a  id="lnkMainImage" href="javascript:return false;" style="cursor: default"><img id="imgMain" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $model->image_main; ?>" style="width: 720px; height: 480px; border: solid 1px black; border-radius: 30px"/></a>
+                    <a  id="lnkMainImage" href="javascript:return false;" style="cursor: default"><img id="imgMain" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $model->image_main; ?>" style="width: 720px; height: 480px; border: solid 2px black; border-radius: 30px"/></a>
                 </div>
             </div>
             <div class="column" style="margin-right: 0px">
                 <div class="row" style="padding-top: 200px">
-                    <a href="javascript:return false;" id="lnk_next"><img src="<?php echo Yii::app()->baseUrl; ?>/images/next_button.png" style="width: 150px"/></a>
+                    <a href="javascript:return false;" id="lnk_next"><img src="<?php echo Yii::app()->baseUrl; ?>/images/next_button.png" style="width: 105px"/></a>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -89,7 +90,7 @@
                         <?php if($row_count == 1){ ?>
                         <div style="display: inline-block;">
                         <?php } ?>
-                            <div id="slide_<?php echo $count; ?>" class="column" style="padding: 0px; margin: 5px; width: 141px"><a href="javascript:LoadImage('<?php echo $count; ?>');"><img id="img_<?php echo $count; ?>" class="slide_image" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $image->file_name; ?>" style="width: 115px; height: 99px; border: solid 2px black; border-radius: 20px"/></a></div>
+                            <div id="slide_<?php echo $count; ?>" class="column" style="padding: 0px; margin: 5px; width: 141px"><a href="javascript:LoadImage('<?php echo $count; ?>');"><img id="img_<?php echo $count; ?>" class="slide_image" src="<?php echo Yii::app()->baseUrl; ?>/property_images/<?php echo $image->file_name; ?>" style="width: 115px; height: 99px; border: solid 2px black;"/></a></div>
                         <?php if ($row_count == 5 || count($model->propertyImages) == $count) { $row_count = 0; ?>
                         </div>
                         <?php } ?>

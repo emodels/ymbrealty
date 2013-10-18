@@ -1,3 +1,4 @@
+<?php Yii::app()->clientScript->registerMetaTag('Yucatan real estate Mexico, realtor Yucatan Mexico, Yucatan real estate for sale, beach house in Progreso, beach house in Yucatan, Mexico Yucatan real estate, Mexico gulf coast real estate, Yucatan real estate listings, Yucatan real estate agents, Mayan Living real estate', 'keywords', null, array('id'=>'meta_keywords')); ?>
 <div class="row">
     <div class="column" style="width: 100%; color: black; font-size: 16px; font-weight: bolder; text-align: center">I can show you any Merida and Yucatan beach or beachfront property, <br/> including "for sale by owner" and properties "represented as exclusive" by other realtors</div>
     <div class="column" style="width: 100%; text-align: center; padding-top: 20px">

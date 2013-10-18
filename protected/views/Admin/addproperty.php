@@ -199,11 +199,6 @@ background-image: linear-gradient(to bottom, #559ABD 0%, #002A3D 100%);
                 <?php echo $form->textField($model, 'price', array('style'=>'width: 100px')); ?>
                 <?php echo $form->error($model, 'price', array('style'=>'width: auto')); ?>
             </div>
-            <div class="column" style="width: 200px; padding-left: 78px"><b>Price in Mexican peso <br/><font style='font-size: 10px'>(<i>Without Symbols</i>)</font></b></div>
-            <div class="column">
-                <?php echo $form->textField($model, 'mexican_peso_price', array('style'=>'width: 100px')); ?>
-                <?php echo $form->error($model, 'mexican_peso_price', array('style'=>'width: auto')); ?>
-            </div>
             <div class="clearfix"></div>
         </div>
         <div class="row" style="padding-top: 10px">
@@ -260,6 +255,11 @@ background-image: linear-gradient(to bottom, #559ABD 0%, #002A3D 100%);
             <div class="column">
                 <?php echo $form->textField($model, 'cfe_meter', array('style'=>'width: 300px')); ?>
                 <?php echo $form->error($model, 'cfe_meter', array('style'=>'width: auto')); ?>
+            </div>
+            <div class="column" style="width: 150px; padding-left: 78px"><b>Price Unit</b></div>
+            <div class="column">
+                <?php echo $form->radioButtonList($model, 'vendor_price_unit', array('USD'=>'USD', 'MXP'=>'MXP'), array('separator'=>'', 'labelOptions'=>array('style'=>'display:inline; padding-right: 50px'))); ?>
+                <?php echo $form->error($model, 'vendor_price_unit', array('style'=>'width: auto')); ?>
             </div>
             <div class="clearfix"></div>
         </div>

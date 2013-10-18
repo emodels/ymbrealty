@@ -17,7 +17,6 @@
  * @property string $city
  * @property integer $state
  * @property double $price
- * @property double $mexican_peso_price
  * @property string $image_main
  * @property string $image_top_left
  * @property string $image_top_right
@@ -35,6 +34,7 @@
  * @property string $cfe_meter
  * @property string $list_date
  * @property double $vendor_price
+ * @property string $vendor_price_unit
  * @property string $vendor_name
  * @property string $vendor_address
  * @property string $vendor_contact_home
@@ -78,18 +78,19 @@ class Property extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ref_no, title, short_desc, full_desc, bed_rooms, bath_rooms, min_to_merida, min_to_beach, address, city, state, price, mexican_peso_price, image_main, image_top_left, image_top_right, image_bottom_left, image_bottom_right, floor_plan, site_plan, keywords, for_sale, featured, status, date_created, date_modified, property_address, cfe_meter, list_date, vendor_price, vendor_name, vendor_address, vendor_contact_home, vendor_contact_cell, vendor_email, vendor_skype, vendor_state_province, vendor_postcode_zip, vendor_country', 'required'),
+			array('ref_no, title, short_desc, full_desc, bed_rooms, bath_rooms, min_to_merida, min_to_beach, address, city, state, price, image_main, image_top_left, image_top_right, image_bottom_left, image_bottom_right, floor_plan, site_plan, keywords, for_sale, featured, status, date_created, date_modified, property_address, cfe_meter, list_date, vendor_price, vendor_price_unit, vendor_name, vendor_address, vendor_contact_home, vendor_contact_cell, vendor_email, vendor_skype, vendor_state_province, vendor_postcode_zip, vendor_country', 'required'),
 			array('bed_rooms, bath_rooms, state, for_sale, featured, status', 'numerical', 'integerOnly'=>true),
-			array('price, mexican_peso_price, vendor_price', 'numerical'),
+			array('price, vendor_price', 'numerical'),
 			array('ref_no, min_to_merida, min_to_beach', 'length', 'max'=>20),
 			array('title, property_address, vendor_address', 'length', 'max'=>500),
 			array('address', 'length', 'max'=>200),
+                        array('vendor_price_unit', 'length', 'max'=>3),
 			array('city, floor_plan, site_plan, cfe_meter, vendor_name, vendor_state_province, vendor_country', 'length', 'max'=>100),
 			array('image_main, image_top_left, image_top_right, image_bottom_left, image_bottom_right, vendor_contact_home, vendor_contact_cell, vendor_email, vendor_skype', 'length', 'max'=>50),
 			array('vendor_postcode_zip', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, ref_no, title, short_desc, full_desc, bed_rooms, bath_rooms, min_to_merida, min_to_beach, address, city, state, price, mexican_peso_price, image_main, image_top_left, image_top_right, image_bottom_left, image_bottom_right, floor_plan, site_plan, keywords, for_sale, featured, status, date_created, date_modified, property_address, cfe_meter, list_date, vendor_price, vendor_name, vendor_address, vendor_contact_home, vendor_contact_cell, vendor_email, vendor_skype, vendor_state_province, vendor_postcode_zip, vendor_country', 'safe', 'on'=>'search'),
+			array('id, ref_no, title, short_desc, full_desc, bed_rooms, bath_rooms, min_to_merida, min_to_beach, address, city, state, price, image_main, image_top_left, image_top_right, image_bottom_left, image_bottom_right, floor_plan, site_plan, keywords, for_sale, featured, status, date_created, date_modified, property_address, cfe_meter, list_date, vendor_price, vendor_price_unit, vendor_name, vendor_address, vendor_contact_home, vendor_contact_cell, vendor_email, vendor_skype, vendor_state_province, vendor_postcode_zip, vendor_country', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -126,7 +127,6 @@ class Property extends CActiveRecord
 			'city' => 'City',
 			'state' => 'State',
 			'price' => 'Price',
-			'mexican_peso_price' => 'Mexican Peso Price',
 			'image_main' => 'Image Main',
 			'image_top_left' => 'Image Top Left',
 			'image_top_right' => 'Image Top Right',
@@ -144,6 +144,7 @@ class Property extends CActiveRecord
 			'cfe_meter' => 'Cfe Meter',
 			'list_date' => 'List Date',
 			'vendor_price' => 'Vendor Price',
+                        'vendor_price_unit' => 'Vendor Price Unit',
 			'vendor_name' => 'Vendor Name',
 			'vendor_address' => 'Vendor Address',
 			'vendor_contact_home' => 'Vendor Contact Home',
@@ -180,7 +181,6 @@ class Property extends CActiveRecord
 		$criteria->compare('city',$this->city,true);
 		$criteria->compare('state',$this->state);
 		$criteria->compare('price',$this->price);
-		$criteria->compare('mexican_peso_price',$this->mexican_peso_price);
 		$criteria->compare('image_main',$this->image_main,true);
 		$criteria->compare('image_top_left',$this->image_top_left,true);
 		$criteria->compare('image_top_right',$this->image_top_right,true);
@@ -198,6 +198,7 @@ class Property extends CActiveRecord
 		$criteria->compare('cfe_meter',$this->cfe_meter,true);
 		$criteria->compare('list_date',$this->list_date,true);
 		$criteria->compare('vendor_price',$this->vendor_price);
+                $criteria->compare('vendor_price_unit',$this->vendor_price_unit,true);
 		$criteria->compare('vendor_name',$this->vendor_name,true);
 		$criteria->compare('vendor_address',$this->vendor_address,true);
 		$criteria->compare('vendor_contact_home',$this->vendor_contact_home,true);

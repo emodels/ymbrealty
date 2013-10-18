@@ -118,6 +118,8 @@ class AdminController extends Controller
             //-----Get Max value-----------
             $prop_max = Property::model()->find(array('order'=>'id DESC'));
             $model->ref_no = $prop_max->ref_no + 1;
+            $model->title = $model->ref_no;
+            $model->keywords = 'Merida Real Estate Agents,Realtor in Merida,Yucatan Real Estate,Merida Real Estate,Merida Properties,Yucatan Properties,Mexican Real Estate,Maps of Mexico,Maps of Yucatan,Maps of Merida';
             //-----------------------------
             
             if (isset($_POST['Property'])) {

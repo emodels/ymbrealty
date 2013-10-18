@@ -46,30 +46,10 @@
     ?>
    <div class="container">
       <div class="primary_background">
-          <div id="header">
-              <div id="menu_top">
-                  <div class="row">
-                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="<?php echo Yii::app()->baseUrl; ?>/index.php" class="active_link">Home</a></div>
-                      <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sun_2.jpg"></div>
-                  </div>
-                  <div class="row" style="margin-top: 28px">
-                      <div class="column" style="width: 100px; text-align: right; margin-right: 20px"><a href="<?php echo Yii::app()->baseUrl; ?>/contact" class="link">Contact Us</a></div>
-                      <div class="column"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sun_1.jpg"></div>
-                  </div>
-              </div>
-              <div id="pay_your_airfare">“I pay your airfare and accommodations when you buy and renovate with YMB Realty.”</div>
-              <div id="tag_line">
-                  <div class="column" style="padding-left: 140px">Real Estate</div>
-                  <div class="column" style="padding-left: 50px">Construction</div>
-                  <div class="column" style="padding-left: 50px">Business Opportunities</div>
-                  <div class="clearfix"></div>
-              </div>
-              <a id="google_earth" href="<?php echo Yii::app()->request->baseUrl; ?>/googleearth"></a>
-          </div>
           <div class="row" style="height: 100%; display: inline-table;">
               <div class="column" style="width: 1176px; margin: 0 0 0 8px; border-top: solid 2px gray">
-                  <div class="row" style="border-bottom: solid 2px gray; background: black">
-                      <div class="column" style="padding: 16px 10px 10px 10px; font-size: 22px; color: white"><strong>Admin Control</strong></div>
+                  <div class="row" style="border-bottom: solid 2px gray; background: white">
+                      <div class="row" style="padding: 16px 10px 10px 10px; font-size: 28px; color: black"><strong>Ymb Admin Control</strong></div>
                       <div class="column right" style="margin-right: 0px">
                           <div class="row" style="padding-top: 12px">
                               <div id="menu_add_new_property" class="column box_top_header"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/addproperty" style="color: white; text-decoration: none">Add New Property</a></div>
