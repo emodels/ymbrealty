@@ -123,7 +123,40 @@ class SiteController extends Controller
                 $model->notes = 'n/a';
                 
                 if($model->save()){
+                    //---------------Email notification to Admin--------------------------------------------------------
                     $message = $this->renderPartial('//email/template/contact_form_submit', array('model'=>$model), true);
+
+                    if (isset($model) && isset($message) && $message != "") {
+                        $mailer = Yii::createComponent('application.extensions.mailer.EMailer');
+                        $mailer->Host = Yii::app()->params['SMTP_Host'];
+                        $mailer->Port = Yii::app()->params['SMTP_Port'];
+                        if (Yii::app()->params['SMTPSecure'] == TRUE){
+                            $mailer->SMTPSecure = 'ssl';
+                        }
+                        $mailer->IsSMTP();
+                        $mailer->SMTPAuth = true;
+                        $mailer->Username = Yii::app()->params['SMTP_Username'];
+                        $mailer->Password = Yii::app()->params['SMTP_password'];
+                        $mailer->From = Yii::app()->params['SMTP_Username'];
+                        $mailer->AddReplyTo(Yii::app()->params['SMTP_Username']);
+                        $mailer->AddAddress(Yii::app()->params['adminEmail']);
+                        $mailer->FromName = 'YMB Realty';
+                        $mailer->CharSet = 'UTF-8';
+                        $mailer->Subject = 'YMB Realty : Client Enquiry - #' . $model->id;
+                        $mailer->IsHTML();
+                        $mailer->Body = $message;
+                        $mailer->SMTPDebug  = Yii::app()->params['SMTPDebug'];
+
+                        try{     
+                            $mailer->Send();
+                        }
+                        catch (Exception $ex){
+                            echo $ex->getMessage();
+                        }
+                    }
+                    //---------------Email confirmation / notification to Client-------------------------------------------------
+                    $message = '';
+                    $message = $this->renderPartial('//email/template/contact_submit_notification', array('model'=>$model), true);
 
                     if (isset($model) && isset($message) && $message != "") {
                         $mailer = Yii::createComponent('application.extensions.mailer.EMailer');
@@ -142,7 +175,7 @@ class SiteController extends Controller
                         $mailer->AddCC(Yii::app()->params['adminEmail']);
                         $mailer->FromName = 'YMB Realty';
                         $mailer->CharSet = 'UTF-8';
-                        $mailer->Subject = 'YMB Realty : Client Enquiry - #' . $model->id;
+                        $mailer->Subject = 'YMB Realty - Contact enquiry confirmation (Reference no : #' . $model->id . ')';
                         $mailer->IsHTML();
                         $mailer->Body = $message;
                         $mailer->SMTPDebug  = Yii::app()->params['SMTPDebug'];

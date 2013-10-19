@@ -5,9 +5,9 @@
                 <tr>
                     <td style="text-align: left">
                         <p>
-                            Dear Site Admin, <br/><br/>New contact enquiry received with following information on <?php echo Yii::app()->dateFormatter->formatDateTime(time(), 'short'); ?>
+                            Dear <?php echo ucfirst($model->name); ?>, <br/><br/> Thank you for contacting us. This notification was to confirm that we have received your enquiry as following and one of our representative will contact you soon. 
                             <br/>
-                            <h1 style="font-size: 15px; color: red"><b>Client enquiry reference number : #<?php echo $model->id; ?></b></h1>
+                            <h1 style="font-size: 15px; color: red"><b>Your enquiry reference number : #<?php echo $model->id; ?></b></h1>
                             <br/>Best regards,  
                             <br/><br/><img src="<?php echo 'http://'. (Yii::app()->request->getServerName() == 'localhost' ? 'localhost/ymbrealty' : Yii::app()->request->getServerName()); ?>/images/logo.png" style="width: 150px"/>
                             <br/><br/>Office number : 011-52-969-934-8010 
