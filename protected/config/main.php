@@ -88,12 +88,12 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'yucatanrob@gmail.com',
+		'adminEmail'=>'rob@ymbrealty.com',
                 'SMTP_Host'=>'mail.ymbrealty.com',
-                'SMTP_Port'=>'465',
-                'SMTP_Username'=>'rob@ymbrealty.com ',
+                'SMTP_Port'=>'25',
+                'SMTP_Username'=>'rob@ymbrealty.com',
                 'SMTP_password'=>'Rob@ymbrealty@123',
-                'SMTPSecure'=>TRUE,
+                'SMTPSecure'=>FALSE,
                 'SMTPDebug'=>FALSE
 	),
 );
