@@ -5,10 +5,11 @@
                 <tr>
                     <td style="text-align: left">
                         <p>
-                            Dear <?php echo ucfirst($model->name); ?>, <br/><br/> Thank you for contacting us. This notification was to confirm that we have received your enquiry as following and one of our representative will contact you soon. 
+                            Dear <?php echo ucfirst($model->name); ?>, <br/><br/> I would like to confirm receipt of your inquiry and thank you for your interest in YMB properties and services. 
                             <br/>
-                            <h1 style="font-size: 15px; color: red"><b>Your enquiry reference number : #<?php echo $model->id; ?></b></h1>
+                            <h1 style="font-size: 15px; color: red">Please click here for more critical information : <a href="<?php echo 'http://'. ((Yii::app()->request->getServerName() == 'localhost' || Yii::app()->request->getServerName() == '54.243.210.21') ? Yii::app()->request->getServerName() . '/ymbrealty' : Yii::app()->request->getServerName()); ?>/criticalinformation"><?php echo 'http://'. ((Yii::app()->request->getServerName() == 'localhost' || Yii::app()->request->getServerName() == '54.243.210.21') ? Yii::app()->request->getServerName() . '/ymbrealty' : Yii::app()->request->getServerName()); ?>/criticalinformation</a></h1>
                             <br/>Best regards,  
+                            <br/><br/>Rob Harker,
                             <br/><br/><img src="<?php echo 'http://'. ((Yii::app()->request->getServerName() == 'localhost' || Yii::app()->request->getServerName() == '54.243.210.21') ? Yii::app()->request->getServerName() . '/ymbrealty' : Yii::app()->request->getServerName()); ?>/images/logo.png" style="width: 150px"/>
                             <br/><br/>Office number : 011-52-969-934-8010 
                             <br/>Cell : 999-129-7321

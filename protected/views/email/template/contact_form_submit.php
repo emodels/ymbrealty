@@ -7,7 +7,6 @@
                         <p>
                             Dear Site Admin, <br/><br/>New contact enquiry received with following information on <?php echo Yii::app()->dateFormatter->formatDateTime(time(), 'short'); ?>
                             <br/>
-                            <h1 style="font-size: 15px; color: red"><b>Client enquiry reference number : #<?php echo $model->id; ?></b></h1>
                             <br/>Best regards,  
                             <br/><br/><img src="<?php echo 'http://'. ((Yii::app()->request->getServerName() == 'localhost' || Yii::app()->request->getServerName() == '54.243.210.21') ? Yii::app()->request->getServerName() . '/ymbrealty' : Yii::app()->request->getServerName()); ?>/images/logo.png" style="width: 150px"/>
                             <br/><br/>Office number : 011-52-969-934-8010 

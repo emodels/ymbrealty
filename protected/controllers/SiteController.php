@@ -166,7 +166,7 @@ class SiteController extends Controller
                         $mailer->AddAddress(Yii::app()->params['adminEmail']);
                         $mailer->FromName = 'YMB Realty';
                         $mailer->CharSet = 'UTF-8';
-                        $mailer->Subject = 'YMB Realty : Client Enquiry - #' . $model->id;
+                        $mailer->Subject = 'YMB Realty : Contact enquiry from - ' . $model->name;
                         $mailer->IsHTML();
                         $mailer->Body = $message;
                         $mailer->SMTPDebug  = Yii::app()->params['SMTPDebug'];
@@ -199,7 +199,7 @@ class SiteController extends Controller
                         $mailer->AddCC(Yii::app()->params['adminEmail']);
                         $mailer->FromName = 'YMB Realty';
                         $mailer->CharSet = 'UTF-8';
-                        $mailer->Subject = 'YMB Realty - Contact enquiry confirmation (Reference no : #' . $model->id . ')';
+                        $mailer->Subject = 'YMB Realty - Contact enquiry confirmation for client : ' . $model->name;
                         $mailer->IsHTML();
                         $mailer->Body = $message;
                         $mailer->SMTPDebug  = Yii::app()->params['SMTPDebug'];
