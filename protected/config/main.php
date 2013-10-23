@@ -88,11 +88,11 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'info@primesolve.com.au',
-                'SMTP_Host'=>'smtpout.asia.secureserver.net',
+		'adminEmail'=>'yucatanrob@gmail.com',
+                'SMTP_Host'=>'mail.ymbrealty.com',
                 'SMTP_Port'=>'465',
-                'SMTP_Username'=>'info@primesolve.com.au',
-                'SMTP_password'=>'prime@solve',
+                'SMTP_Username'=>'rob@ymbrealty.com ',
+                'SMTP_password'=>'Rob@ymbrealty@123',
                 'SMTPSecure'=>TRUE,
                 'SMTPDebug'=>FALSE
 	),
