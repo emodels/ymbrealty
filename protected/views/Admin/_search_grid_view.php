@@ -48,7 +48,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'name'=>'Edit',
             'type'=>'raw',
-            'value'=>'"<a href=\'admin/editpropery/$data->id\'><img src=\'" . Yii::app()->baseUrl . "/images/edit.png\'/></a>"',
+            'value'=>'"<a href=\'" . Yii::app()->baseUrl . "/admin/editpropery/$data->id\'><img src=\'" . Yii::app()->baseUrl . "/images/edit.png\'/></a>"',
             'htmlOptions'=>array('style'=>'width: 50px; text-align: center')
         ),
         array(
