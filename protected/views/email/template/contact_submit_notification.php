@@ -7,7 +7,7 @@
                         <p>
                             Dear <?php echo ucfirst($model->name); ?>, <br/><br/> I would like to confirm receipt of your inquiry and thank you for your interest in YMB properties and services. 
                             <br/>
-                            <h1 style="font-size: 15px; color: red">Please click here for more critical information : <a href="<?php echo 'http://'. ((Yii::app()->request->getServerName() == 'localhost' || Yii::app()->request->getServerName() == '54.243.210.21') ? Yii::app()->request->getServerName() . '/ymbrealty' : Yii::app()->request->getServerName()); ?>/criticalinformation"><?php echo 'http://'. ((Yii::app()->request->getServerName() == 'localhost' || Yii::app()->request->getServerName() == '54.243.210.21') ? Yii::app()->request->getServerName() . '/ymbrealty' : Yii::app()->request->getServerName()); ?>/criticalinformation</a></h1>
+                            <h1 style="font-size: 15px; color: red; text-align: center"><a href="<?php echo 'http://'. ((Yii::app()->request->getServerName() == 'localhost' || Yii::app()->request->getServerName() == '54.243.210.21') ? Yii::app()->request->getServerName() . '/ymbrealty' : Yii::app()->request->getServerName()); ?>/criticalinformation">Please click here for more critical information</a></h1>
                             <br/>Best regards,  
                             <br/><br/>Rob Harker,
                             <br/><br/><img src="<?php echo 'http://'. ((Yii::app()->request->getServerName() == 'localhost' || Yii::app()->request->getServerName() == '54.243.210.21') ? Yii::app()->request->getServerName() . '/ymbrealty' : Yii::app()->request->getServerName()); ?>/images/logo.png" style="width: 150px"/>
