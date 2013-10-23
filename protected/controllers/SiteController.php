@@ -37,6 +37,30 @@ class SiteController extends Controller
                 $this->render('index', array('dataProvider' => $dataProvider));
 	}
 
+        public function actionCriticalInformation(){
+            $this->render('critical_information');
+        }
+        
+        public function actionCheckProperty($mode, $value){
+            if ($mode == 'id') {
+                $model = Property::model()->findByAttributes(array('ref_no' => $value));
+
+                if (!isset($model)) {
+                    echo '';
+                } else {
+                    echo $model->id;
+                }
+            } else {
+                $model = Property::model()->findByAttributes(array('price' => floatval($value)));
+
+                if (!isset($model)) {
+                    echo '';
+                } else {
+                    echo $model->id;
+                }
+            }
+        }
+        
         public function actionProperty($id){
             $model = Property::model()->findByAttributes(array('id' => $id));
             

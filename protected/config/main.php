@@ -40,6 +40,7 @@ return array(
                         'showScriptName'=>false,
                         'caseSensitive'=>false,
 			'rules'=>array(
+                                'criticalinformation'=>'site/criticalinformation',
                                 'googleearth'=>'site/googleearth',
                                 'propertylisting'=>'site/propertylisting',
                                 'propertylisting/category/\d+'=>'site/propertylisting/category/\d+',

@@ -43,7 +43,7 @@ class ClientLedger extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, address, contact_number, email, message, entry_date, status_updated_date, status, notes', 'required'),
+			array('name, contact_number, email, message, entry_date, status_updated_date, status, notes', 'required'),
 			array('name, contact_number', 'length', 'max'=>100),
 			array('address', 'length', 'max'=>500),
 			array('email', 'length', 'max'=>50),

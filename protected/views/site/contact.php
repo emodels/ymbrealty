@@ -26,7 +26,7 @@ $(document).ready(function(){
         </div>
         <div class="row" style="padding-top: 10px">
             <div class="column" style="width: 200px"><b>Address</b></div>
-            <div class="column"><?php echo $form->textField($model, 'address', array('style'=>'width: 400px')); ?><?php echo $form->error($model, 'address', array('style'=>'width: 400px')); ?></div>
+            <div class="column"><?php echo $form->textField($model, 'address', array('style'=>'width: 400px')); ?></div>
             <div class="clearfix"></div>
         </div>
         <div class="row" style="padding-top: 10px">
