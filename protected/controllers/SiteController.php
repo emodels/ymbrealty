@@ -86,6 +86,10 @@ class SiteController extends Controller
                 ));
             }
             
+            if (isset($_GET['price_range'])){
+                $criteria->addBetweenCondition('price', $_GET['price_range'], $_GET['price_range'] + 10000);
+            }
+            
             $dataProvider = new CActiveDataProvider('Property', array('criteria'=>$criteria, 'pagination' => array('pageSize' => 50)));
             
             $this->render('propertylisting', array('dataProvider' => $dataProvider));

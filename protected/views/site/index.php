@@ -1,51 +1,35 @@
 <?php Yii::app()->clientScript->registerMetaTag('Yucatan real estate Mexico, realtor Yucatan Mexico, Yucatan real estate for sale, beach house in Progreso, beach house in Yucatan, Mexico Yucatan real estate, Mexico gulf coast real estate, Yucatan real estate listings, Yucatan real estate agents, Mayan Living real estate', 'keywords', null, array('id'=>'meta_keywords')); ?>
 <script type="text/javascript">
-    $('#txt_prop_id').live('keypress',function(e){
-        var p = e.which;
-        if(p==13){
-            if ($(this).val() == ''){
-                alert('Property ID can not be blank');
-            } else {
-                $.ajax({
-                    type: "GET",
-                    url: "site/CheckProperty?mode=id&value=" + $(this).val(),
-                    success: function(data){
-                        if(data != ''){
-                            window.document.location.href = 'property/id/' + data;
-                        }else{
-                            alert('Invalid Property ID');
-                        }
+    $('#btn_search').live('click', function(){
+         if ($('#txt_prop_id').val() == '' && $('#txt_prop_price').val() == ''){
+            alert('Please enter Property ID or Price');
+         }
+        
+         if ($('#txt_prop_id').val() != ''){
+            $.ajax({
+                type: "GET",
+                url: "site/CheckProperty?mode=id&value=" + $('#txt_prop_id').val(),
+                success: function(data){
+                    if(data != ''){
+                        window.document.location.href = 'property/id/' + data;
+                    }else{
+                        alert('Invalid Property ID');
                     }
-                });     
-            }
-        }
-    });
-    
-    $('#txt_prop_price').live('keypress',function(e){
-        var p = e.which;
-        if(p==13){
-            if ($(this).val() == ''){
-                alert('Property Price can not be blank');
-            } else if (isNaN($(this).val())){
-                alert('Property Price must be numeric');
-            } else {
-                $.ajax({
-                    type: "GET",
-                    url: "site/CheckProperty?mode=price&value=" + $(this).val(),
-                    success: function(data){
-                        if(data != ''){
-                            window.document.location.href = 'property/id/' + data;
-                        }else{
-                            alert('Can not find any property with given price');
-                        }
-                    }
-                });     
-            }
+                }
+            });     
+         } else {
+            if ($('#txt_prop_price').val() != ''){
+                if (isNaN($('#txt_prop_price').val())){
+                    alert('Property Price must be numeric');
+                } else {
+                    window.document.location.href = 'PropertyListing?price_range=' + $('#txt_prop_price').val();
+                }
+            }   
         }
     });
 </script>
 <style type="text/css">
-    #sidebar .orange_line { height: 401px; }
+    #sidebar .orange_line { height: 413px; }
 </style>
 <div class="row">
     <div class="column" style="width: 100%; color: black; font-size: 16px; font-weight: bolder; text-align: center">I can show you any Merida and Yucatan beach or beachfront property, <br/> including "for sale by owner" and properties "represented as exclusive" by other realtors</div>
@@ -58,10 +42,10 @@
         ));
         ?>
     </div>
-    <div class="column" style="width: 100%; text-align: center; padding-top: 20px; padding-left: 10px; font-size: 15px; font-weight: bold; color: black">
-        If you know the property number /  price you are interested in then enter it here  #  <input type="text" id="txt_prop_id" style="width: 50px"/>  $  <input type="text" id="txt_prop_price" style="width: 50px"/> otherwise
+    <div class="column" style="width: 100%; text-align: center; padding-top: 20px; padding-left: 10px; font-size: 16px; font-weight: bold; color: black">
+        If you know the property number OR price range you are interested in then<br/> enter it here # <input type="text" id="txt_prop_id" style="width: 50px"/>  $  <input type="text" id="txt_prop_price" style="width: 50px"/> <input id="btn_search" type="button" class="button_orange" value="Search" style="cursor: pointer"/> otherwise
     </div>
-    <div class="column" style="width: 100%; text-align: center; padding-top: 20px; padding-left: 10px">
+    <div class="column" style="width: 100%; text-align: center; padding-top: 0px; padding-left: 10px">
         <a href="propertylisting" style="display: inline-block; text-decoration: none; font-size: 22px; color: black; font-weight: bold; text-align: center"><div class="gradient_gray_box" style="width: 882px; padding: 15px 0 15px 0; border-radius: 20px">Click here to see all our properties in ascending  order of price</div></a>
     </div>
     <div class="column" style="width: 1164px; background: #A4DEEA; margin-top: 11px; border-bottom: solid 2px silver; border-right: solid 1px silver; height: 20px"></div>
