@@ -217,8 +217,9 @@ class SiteController extends Controller
                     }
                     
                     unset(Yii::app()->session['contact_prop_array']);
+                    $model=new ClientLedger();
+                    
                     Yii::app()->user->setFlash('success','Thank you for contacting us. We will respond to you as soon as possible.');
-                    $this->redirect(Yii::app()->baseUrl); 
                 }
             }
             $this->render('contact',array('model'=>$model));
