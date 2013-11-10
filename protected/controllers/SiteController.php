@@ -124,6 +124,7 @@ class SiteController extends Controller
 	{
             $model=new ClientLedger();
             $prop_array = array();
+            $Is_display_alert = false;
             
             if (isset(Yii::app()->session['contact_prop_array'])) {
                 $prop_array = Yii::app()->session['contact_prop_array'];
@@ -220,9 +221,10 @@ class SiteController extends Controller
                     $model=new ClientLedger();
                     
                     Yii::app()->user->setFlash('success','Thank you for contacting us. We will respond to you as soon as possible.');
+                    $Is_display_alert = true;
                 }
             }
-            $this->render('contact',array('model'=>$model));
+            $this->render('contact',array('model'=>$model, 'Is_display_alert'=>$Is_display_alert));
 	}
 
 	/**

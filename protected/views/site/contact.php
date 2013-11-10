@@ -18,6 +18,9 @@ $(document).ready(function(){
     ));
     ?>
     <h1 style="font-size: 22px; padding: 10px"><b>Contact Us</b></h1>
+    <?php if ($Is_display_alert){ ?>
+    <div style="color: red; font-size: 20px; padding: 0 0 10px 10px">Thank you for contacting us. We will respond to you as soon as possible.</div>
+    <?php } ?>
     <div class="row" style="position: relative; padding: 20px; margin-left: 10px; border: solid 1px silver; background: #f7f7f7; border-radius: 10px; font-size: 15px">
         <div class="row">
             <div class="column" style="width: 200px"><b>Name</b></div>
