@@ -220,7 +220,7 @@ class SiteController extends Controller
                     unset(Yii::app()->session['contact_prop_array']);
                     $model=new ClientLedger();
                     
-                    Yii::app()->user->setFlash('success','Thank you for contacting us. We will respond to you as soon as possible.');
+                    Yii::app()->user->setFlash('success','Thank you for contacting us. We will respond to you with 2 business days.');
                     $Is_display_alert = true;
                 }
             }
