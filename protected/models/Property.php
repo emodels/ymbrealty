@@ -78,7 +78,8 @@ class Property extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ref_no, title, short_desc, full_desc, bed_rooms, bath_rooms, min_to_merida, min_to_beach, address, city, state, price, image_main, image_top_left, image_top_right, image_bottom_left, image_bottom_right, floor_plan, site_plan, keywords, for_sale, featured, status, date_created, date_modified, property_address, cfe_meter, list_date, vendor_price, vendor_price_unit, vendor_name, vendor_address, vendor_contact_home, vendor_contact_cell, vendor_email, vendor_skype, vendor_state_province, vendor_postcode_zip, vendor_country', 'required'),
+                        /*property_address, cfe_meter, list_date, vendor_price, vendor_price_unit, vendor_name, vendor_address, vendor_contact_home, vendor_contact_cell, vendor_email, vendor_skype, vendor_state_province, vendor_postcode_zip, vendor_country*/
+			array('ref_no, title, short_desc, full_desc, bed_rooms, bath_rooms, min_to_merida, min_to_beach, address, city, state, price, image_main, image_top_left, image_top_right, image_bottom_left, image_bottom_right, floor_plan, site_plan, keywords, for_sale, featured, status, date_created, date_modified', 'required'),
 			array('bed_rooms, bath_rooms, state, for_sale, featured, status', 'numerical', 'integerOnly'=>true),
 			array('price, vendor_price', 'numerical'),
 			array('ref_no, min_to_merida, min_to_beach', 'length', 'max'=>20),
